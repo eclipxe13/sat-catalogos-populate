@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Origins;
+namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Origins\Reviewers;
 
 use LogicException;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
+use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\ScrapingReviewer;
 use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingOrigin;
-use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingReviewer;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 

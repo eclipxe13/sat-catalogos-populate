@@ -2,9 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogosPopulate\Origins;
+namespace PhpCfdi\SatCatalogosPopulate\Origins\Reviewers;
 
 use LogicException;
+use PhpCfdi\SatCatalogosPopulate\Origins\ConstantOrigin;
+use PhpCfdi\SatCatalogosPopulate\Origins\OriginInterface;
+use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
+use PhpCfdi\SatCatalogosPopulate\Origins\Review;
+use PhpCfdi\SatCatalogosPopulate\Origins\ReviewStatus;
 
 class ConstantReviewer implements ReviewerInterface
 {

@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogosPopulate\Database\Repository;
 use PhpCfdi\SatCatalogosPopulate\Importers\SourcesImporter;
 use PhpCfdi\SatCatalogosPopulate\Origins\Origins;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginsIO;
-use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers;
+use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\Reviewers;
 use PhpCfdi\SatCatalogosPopulate\Origins\ReviewStatus;
 use PhpCfdi\SatCatalogosPopulate\Origins\Upgrader;
 use PhpCfdi\SatCatalogosPopulate\Origins\WebResourcesGateway;
