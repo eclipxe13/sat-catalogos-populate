@@ -68,7 +68,7 @@ class ClavesUnidadesTest extends TestCase
                 'simbolo' => TextDataField::class,
                 'bandera' => TextDataField::class,
             ],
-            ['id']
+            ['id'],
         );
     }
 }

@@ -26,7 +26,7 @@ class ConstantReviewerTest extends TestCase
     public function testReviewOriginWithUptodateResponse(): void
     {
         $this->resourcesGateway->add(
-            new UrlResponse('http://example.com/foo.txt', 200, new DateTimeImmutable('2017-01-02'))
+            new UrlResponse('http://example.com/foo.txt', 200, new DateTimeImmutable('2017-01-02')),
         );
         $origin = new ConstantOrigin('Foo', 'http://example.com/foo.txt', new DateTimeImmutable('2017-01-02'));
 
@@ -39,7 +39,7 @@ class ConstantReviewerTest extends TestCase
     public function testReviewOriginWithNotUpdatedResponse(): void
     {
         $this->resourcesGateway->add(
-            new UrlResponse('http://example.com/foo.txt', 200, new DateTimeImmutable('2017-01-02'))
+            new UrlResponse('http://example.com/foo.txt', 200, new DateTimeImmutable('2017-01-02')),
         );
         $origin = new ConstantOrigin('Foo', 'http://example.com/foo.txt', new DateTimeImmutable('2017-01-01'));
 

@@ -34,7 +34,7 @@ class AbstractCsvInjectorTest extends TestCase
     {
         $injector = new FakeCsvInjector(__FILE__);
         $injector->validate();
-        $this->assertTrue(true, 'The validate method did not create any exception');
+        $this->assertTrue(true, 'The validate method did not create any exception'); /** @phpstan-ignore-line */
     }
 
     /** @return array<string, array{string}> */
@@ -80,7 +80,7 @@ class AbstractCsvInjectorTest extends TestCase
         $this->assertSame(
             array_replace_recursive($retrieved, $expected),
             $retrieved,
-            'All expected elements are in the injected data'
+            'All expected elements are in the injected data',
         );
         $this->assertSame($expected[0], current($retrieved), 'The first element did match');
         $this->assertSame($expected[5], end($retrieved), 'The last element did match');

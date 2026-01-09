@@ -66,7 +66,7 @@ class LocalidadesTest extends TestCase
                 'vigencia_desde' => DateDataField::class,
                 'vigencia_hasta' => DateDataField::class,
             ],
-            ['localidad', 'estado']
+            ['localidad', 'estado'],
         );
     }
 }

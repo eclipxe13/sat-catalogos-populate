@@ -114,9 +114,11 @@ class CliApplication
         $commandClassName = $this->getCommandClass($commandName);
         $description = $this->commands[$commandName]['description'];
         echo $commandName, ': ', $description, PHP_EOL;
-        /** @var callable $staticCallable phpstan work around */
         $staticCallable = $commandClassName . '::help';
-        /** @var string $helpOutput */
+        /**
+         * @var string $helpOutput
+         * @phpstan-ignore-next-line
+         */
         $helpOutput = call_user_func($staticCallable, $commandName);
         echo $helpOutput, PHP_EOL, PHP_EOL;
     }

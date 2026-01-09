@@ -18,6 +18,7 @@ class ReviewStatus
 
     private static function staticObjects(string $type): self
     {
+        /** @var array<string, self> $objects */
         static $objects = [];
         if (! array_key_exists($type, $objects)) {
             $objects[$type] = new self($type);

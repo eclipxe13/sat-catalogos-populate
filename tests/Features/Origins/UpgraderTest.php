@@ -88,7 +88,7 @@ class UpgraderTest extends TestCase
             $this->assertEquals(
                 $this->lastModified,
                 $origin->lastVersion(),
-                "The origin {$origin->name()} did not has the last version date"
+                "The origin {$origin->name()} did not has the last version date",
             );
         }
     }

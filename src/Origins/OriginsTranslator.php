@@ -29,7 +29,7 @@ final class OriginsTranslator implements OriginsTranslatorInterface
             strval($data['name'] ?? ''),
             strval($data['href'] ?? ''),
             $this->dateTimeFromStringOrNull(strval($data['last-update'] ?? '')),
-            strval($data['destination-file'] ?? '')
+            strval($data['destination-file'] ?? ''),
         );
     }
 

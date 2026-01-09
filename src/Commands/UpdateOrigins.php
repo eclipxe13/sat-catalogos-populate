@@ -29,7 +29,7 @@ final class UpdateOrigins implements CommandInterface
         string $originsFile,
         private readonly bool $updateOrigins,
         private readonly string $databaseLocation,
-        private LoggerInterface $logger
+        private LoggerInterface $logger,
     ) {
         if ('' === $originsFile) {
             throw new RuntimeException('Invalid origins: empty string received');
@@ -119,7 +119,7 @@ final class UpdateOrigins implements CommandInterface
                     $review->origin()->name(),
                     $review->origin()->downloadUrl(),
                     $review->origin()->destinationFilename(),
-                    $review->origin()->lastVersion()->format('c')
+                    $review->origin()->lastVersion()->format('c'),
                 ));
             }
         }
@@ -127,7 +127,7 @@ final class UpdateOrigins implements CommandInterface
             $this->logger->info(sprintf(
                 'El origen %s para %s no fue encontrado',
                 $review->origin()->name(),
-                $review->origin()->destinationFilename()
+                $review->origin()->destinationFilename(),
             ));
         }
         if ($notFoundReviews->count() > 0) {

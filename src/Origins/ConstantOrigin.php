@@ -16,7 +16,7 @@ class ConstantOrigin implements OriginInterface
         private readonly string $name,
         private readonly string $url,
         private ?DateTimeImmutable $lastVersion = null,
-        string $destinationFilename = ''
+        string $destinationFilename = '',
     ) {
         if ('' === $destinationFilename) {
             $destinationFilename = ltrim(parse_url($url, PHP_URL_PATH) ?: '', '/');

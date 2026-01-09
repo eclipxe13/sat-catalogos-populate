@@ -60,7 +60,7 @@ class XlsToXlsxConverter
         $execution = ShellExec::run($command);
         if (0 !== $execution->exitStatus()) {
             throw new RuntimeException(
-                "Execution of soffice convertion return a non zero status code [{$execution->exitStatus()}]"
+                "Execution of soffice convertion return a non zero status code [{$execution->exitStatus()}]",
             );
         }
 

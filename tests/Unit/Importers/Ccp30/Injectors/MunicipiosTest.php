@@ -66,7 +66,7 @@ class MunicipiosTest extends TestCase
                 'vigencia_desde' => DateDataField::class,
                 'vigencia_hasta' => DateDataField::class,
             ],
-            ['municipio', 'estado']
+            ['municipio', 'estado'],
         );
     }
 }

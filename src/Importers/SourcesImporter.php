@@ -13,6 +13,7 @@ class SourcesImporter implements ImporterInterface
 {
     public function import(string $source, Repository $repository, LoggerInterface $logger): void
     {
+        /** @var array<string, array{source: non-empty-string, importer: ImporterInterface}> $importers */
         $importers = [
             'CFDI 3.3' => ['source' => $source . '/catCFDI.xls', 'importer' => new CfdiCatalogs()],
             'CFDI 4.0' => ['source' => $source . '/cfdi_40.xls', 'importer' => new Cfdi40Catalogs()],
@@ -38,7 +39,6 @@ class SourcesImporter implements ImporterInterface
         }
 
         foreach ($importers as $name => $info) {
-            /** @var ImporterInterface $importer */
             $sourceFile = $info['source'];
             $importer = $info['importer'];
             $logger->info("Importando $name desde $sourceFile...");

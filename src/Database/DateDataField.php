@@ -12,6 +12,7 @@ class DateDataField extends AbstractDataField implements DataFieldInterface
     public function __construct(string $name)
     {
         parent::__construct($name, function ($input) use ($name): string {
+            $input = strval($input);
             // empty string
             if ('' === $input) {
                 return '';

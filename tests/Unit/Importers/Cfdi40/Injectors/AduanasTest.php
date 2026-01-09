@@ -54,7 +54,7 @@ class AduanasTest extends TestCase
         $this->assertSame('cfdi_40_aduanas', $dataTable->name());
         $this->assertSame(
             ['id', 'texto', 'vigencia_desde', 'vigencia_hasta'],
-            $dataTable->fields()->keys()
+            $dataTable->fields()->keys(),
         );
     }
 }

@@ -22,7 +22,7 @@ class OriginsReaderTest extends TestCase
         $translator = new OriginsTranslator();
         $originsData = array_map(
             fn (OriginInterface $origin): array => $translator->originToArray($origin),
-            $origins->all()
+            $origins->all(),
         );
 
         $expectedOrigins = [

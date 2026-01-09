@@ -63,7 +63,7 @@ class ColoniasTest extends TestCase
                 'codigo_postal' => PaddingDataField::class,
                 'texto' => TextDataField::class,
             ],
-            ['colonia', 'codigo_postal']
+            ['colonia', 'codigo_postal'],
         );
     }
 }

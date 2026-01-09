@@ -25,6 +25,7 @@ class DataFields implements Countable, IteratorAggregate
     public function __construct(array $dataFields)
     {
         foreach ($dataFields as $dataField) {
+            /** @phpstan-ignore-next-line instanceof.alwaysTrue */
             if (! $dataField instanceof DataFieldInterface) {
                 throw new InvalidArgumentException('There is a datafield with invalid type');
             }

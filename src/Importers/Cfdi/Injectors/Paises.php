@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Importers\Cfdi\Injectors;
 
+use http\Exception\InvalidArgumentException;
 use PhpCfdi\SatCatalogosPopulate\AbstractCsvInjector;
 use PhpCfdi\SatCatalogosPopulate\Database\DataFields;
 use PhpCfdi\SatCatalogosPopulate\Database\DataTable;
@@ -38,7 +39,8 @@ class Paises extends AbstractCsvInjector implements InjectorInterface
 
     public function dataTable(): DataTable
     {
-        $optionalPattern = function (string $input): string {
+        $optionalPattern = function ($input): string {
+            $input = is_scalar($input) ? strval($input) : throw new InvalidArgumentException('Unexpected input type');
             if ('' === $input) {
                 return '';
             }

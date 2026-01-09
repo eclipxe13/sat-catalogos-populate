@@ -51,7 +51,7 @@ class XlsxToCsvFolderConverter
         $execution = ShellExec::run($command);
         if (0 !== $execution->exitStatus()) {
             throw new RuntimeException(
-                "Execution of xlsx2csv conversion return a non zero status code [{$execution->exitStatus()}]"
+                "Execution of xlsx2csv conversion return a non zero status code [{$execution->exitStatus()}]",
             );
         }
 
@@ -79,7 +79,7 @@ class XlsxToCsvFolderConverter
         $execution = ShellExec::run($command);
         if (0 !== $execution->exitStatus()) {
             throw new RuntimeException(
-                "Remove trailing commas failed with code [{$execution->exitStatus()}] for file $csvFile"
+                "Remove trailing commas failed with code [{$execution->exitStatus()}] for file $csvFile",
             );
         }
     }

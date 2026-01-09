@@ -30,7 +30,7 @@ abstract class AbstractCollection implements Countable, IteratorAggregate
         foreach ($members as $index => $member) {
             if (! $this->isValidMember($member)) {
                 throw new InvalidArgumentException(
-                    "The member $index contains an object that is not valid for this collection"
+                    "The member $index contains an object that is not valid for this collection",
                 );
             }
         }
@@ -54,7 +54,7 @@ abstract class AbstractCollection implements Countable, IteratorAggregate
     {
         if (! isset($this->members[$index])) {
             throw new InvalidArgumentException(
-                "The collection does not contain the index $index"
+                "The collection does not contain the index $index",
             );
         }
 

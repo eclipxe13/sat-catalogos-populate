@@ -63,8 +63,8 @@ class CsvFolderJoinFiles
                         'source' => $path,
                     ];
                 },
-                glob($csvFolder . '/*.csv') ?: []
-            )
+                glob($csvFolder . '/*.csv') ?: [],
+            ),
         );
 
         uasort($files, $this->compareFiles(...));
@@ -146,7 +146,7 @@ class CsvFolderJoinFiles
     {
         // explode values, trim values, remove empty values at end and implode values back
         return implode(',', array_rtrim(
-            array_map(static fn (?string $value): string => trim($value ?? ''), str_getcsv($current))
+            array_map(static fn (?string $value): string => trim($value ?? ''), str_getcsv($current)),
         ));
     }
 

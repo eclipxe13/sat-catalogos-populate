@@ -39,7 +39,7 @@ final readonly class ScrapingReviewerLinkExtractor
     {
         $elements = $this->crawler->filterXPath('//a')->reduce(
             fn (Crawler $linkElement): bool =>
-                ('' !== $text = $linkElement->text('')) && fnmatch($search, $text, FNM_CASEFOLD)
+                ('' !== $text = $linkElement->text('')) && fnmatch($search, $text, FNM_CASEFOLD),
         );
 
         if ($elements->count() > $position) {

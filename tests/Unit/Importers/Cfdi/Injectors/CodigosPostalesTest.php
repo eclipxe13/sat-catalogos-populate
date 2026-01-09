@@ -117,7 +117,7 @@ class CodigosPostalesTest extends TestCase
         $this->assertGreaterThan(
             0,
             $count,
-            sprintf('Cannot find records with estimulo_frontera = %s', $estimuloFrontera)
+            sprintf('Cannot find records with estimulo_frontera = %s', $estimuloFrontera),
         );
     }
 }

@@ -65,7 +65,7 @@ class TiposMateriaTest extends TestCase
                 'vigencia_desde' => DateDataField::class,
                 'vigencia_hasta' => DateDataField::class,
             ],
-            ['id']
+            ['id'],
         );
     }
 }
