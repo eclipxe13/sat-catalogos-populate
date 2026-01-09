@@ -21,6 +21,7 @@ RUN set -e \
     && apt-get install -y --no-install-recommends \
         libreoffice-calc-nogui default-jre-headless libreoffice-java-common \
     # Clean APT \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -e \
