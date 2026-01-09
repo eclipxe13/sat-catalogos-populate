@@ -1,5 +1,27 @@
 # phpcfdi/sat-catalogos-populate Changelog
 
+## Version 2.10.0 2026-01-08
+
+This is an update to make the code compatible with PHP 8.4.
+There are almost no compatibility backwards issues.
+
+Change license year to 2026.
+
+Other development changes:
+
+- Bump to PHPUnit 11.5.
+- Improve code using `rector/rector`.
+- Add PHP 8.4 to test matrix.
+- Run jobs using PHP 8.4 on GitHub workflows.
+- Fix `composer-normalize` workflow.
+- Update code standard for `phpcs` and `php-cs-fixer`.
+- Improve docker file:
+  - Run using Debian Trixie.
+  - Improve PHP installation.
+  - Clean APT packages.
+  - Set up PHP timezone variable.
+- Update development tools.
+
 ## Version 2.9.0 2024-06-19
 
 Add CCP (*Complemento de Carta Porte*) 3.1 catalogs.
