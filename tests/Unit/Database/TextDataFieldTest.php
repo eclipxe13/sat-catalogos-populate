@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogosPopulate\Database\TextDataField;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class TextDataFieldTest extends TestCase
+final class TextDataFieldTest extends TestCase
 {
     /** @return array<string, array{string, string}> */
     public static function providerTransformPerformTrim(): array

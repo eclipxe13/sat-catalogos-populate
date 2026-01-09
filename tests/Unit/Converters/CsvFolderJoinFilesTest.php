@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\tempname;
 
-class CsvFolderJoinFilesTest extends TestCase
+final class CsvFolderJoinFilesTest extends TestCase
 {
     public function testObtainFilesThatAreSplitted(): void
     {
@@ -129,7 +129,7 @@ class CsvFolderJoinFilesTest extends TestCase
         $expectedFile = $this->utilFilePath('splitted/ExpectedFoo.csv');
 
         $files = $joiner->obtainFilesThatAreSplitted($csvFolder);
-        $fooFiles = $files[$csvFolder . '/Foo.csv'];
+        $fooFiles = $files[$csvFolder . '/Foo.csv'] ?? null;
         if (! is_array($fooFiles)) {
             $this->fail('Unexpected response from method obtainFilesThatAreSplitted');
         }

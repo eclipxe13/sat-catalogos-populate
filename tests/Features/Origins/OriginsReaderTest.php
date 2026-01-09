@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\OriginsIO;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginsTranslator;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class OriginsReaderTest extends TestCase
+final class OriginsReaderTest extends TestCase
 {
     public function testReadOriginsFromFile(): void
     {
@@ -22,7 +22,7 @@ class OriginsReaderTest extends TestCase
         $translator = new OriginsTranslator();
         $originsData = array_map(
             fn (OriginInterface $origin): array => $translator->originToArray($origin),
-            $origins->all()
+            $origins->all(),
         );
 
         $expectedOrigins = [

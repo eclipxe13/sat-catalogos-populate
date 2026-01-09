@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Log\NullLogger;
 use RuntimeException;
 
-class AbstractCsvInjectorTest extends TestCase
+final class AbstractCsvInjectorTest extends TestCase
 {
     public function testCreateFakeCsvInjector(): void
     {
@@ -27,14 +27,14 @@ class AbstractCsvInjectorTest extends TestCase
         $sourceFile = $this->utilFilePath('sample.csv');
         $injector = new FakeCsvInjector($sourceFile);
 
-        $this->assertEquals($sourceFile, $injector->sourceFile());
+        $this->assertSame($sourceFile, $injector->sourceFile());
     }
 
     public function testValidateWithValidSourcefile(): void
     {
         $injector = new FakeCsvInjector(__FILE__);
         $injector->validate();
-        $this->assertTrue(true, 'The validate method did not create any exception');
+        $this->assertTrue(true, 'The validate method did not create any exception'); /** @phpstan-ignore-line */
     }
 
     /** @return array<string, array{string}> */
@@ -80,7 +80,7 @@ class AbstractCsvInjectorTest extends TestCase
         $this->assertSame(
             array_replace_recursive($retrieved, $expected),
             $retrieved,
-            'All expected elements are in the injected data'
+            'All expected elements are in the injected data',
         );
         $this->assertSame($expected[0], current($retrieved), 'The first element did match');
         $this->assertSame($expected[5], end($retrieved), 'The last element did match');

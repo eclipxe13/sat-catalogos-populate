@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingOrigin;
 use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingReviewer;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class ScrapingReviewerTest extends TestCase
+final class ScrapingReviewerTest extends TestCase
 {
     private ScrapingReviewer $reviewer;
 

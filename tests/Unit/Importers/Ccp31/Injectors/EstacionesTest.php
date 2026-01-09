@@ -15,7 +15,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class EstacionesTest extends TestCase
+final class EstacionesTest extends TestCase
 {
     use CheckDataTableTrait;
 
@@ -68,7 +68,7 @@ class EstacionesTest extends TestCase
                 'vigencia_desde' => DateDataField::class,
                 'vigencia_hasta' => DateDataField::class,
             ],
-            ['id']
+            ['id'],
         );
     }
 }

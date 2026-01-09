@@ -24,7 +24,7 @@ class TerminalLogger extends AbstractLogger
         file_put_contents(
             'php://' . $streamName,
             date('Y-m-d H:i:s') . ' ' . $level . ': ' . $message . PHP_EOL,
-            FILE_APPEND
+            FILE_APPEND,
         );
     }
 

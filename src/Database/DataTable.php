@@ -22,7 +22,7 @@ class DataTable
         string $name,
         DataFields $fields,
         array $primaryKey = [],
-        bool $withoutPrimaryKey = false
+        bool $withoutPrimaryKey = false,
     ) {
         if ('' === $name) {
             throw new LogicException('The table name must not be empty');

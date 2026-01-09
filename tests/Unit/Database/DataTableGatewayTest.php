@@ -12,7 +12,7 @@ use PhpCfdi\SatCatalogosPopulate\Database\Repository;
 use PhpCfdi\SatCatalogosPopulate\Database\TextDataField;
 use PHPUnit\Framework\TestCase;
 
-class DataTableGatewayTest extends TestCase
+final class DataTableGatewayTest extends TestCase
 {
     protected Repository $repository;
 
@@ -58,7 +58,7 @@ class DataTableGatewayTest extends TestCase
 
         $sql = 'select * from records where (id = :id);';
         $retrieved = $this->repository->queryRow($sql, ['id' => 'X5']);
-        $this->assertEquals(['id' => 'X5', 'description' => 'This is bar 5'], $retrieved);
+        $this->assertSame(['id' => 'X5', 'description' => 'This is bar 5'], $retrieved);
     }
 
     public function testPrimaryKeyIsHonored(): void

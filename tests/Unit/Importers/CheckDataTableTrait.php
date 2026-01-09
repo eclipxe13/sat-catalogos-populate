@@ -6,20 +6,15 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Importers;
 
 use PhpCfdi\SatCatalogosPopulate\Database\DataTable;
 use PhpCfdi\SatCatalogosPopulate\Database\PreprocessDataField;
-use PHPUnit\Framework\TestCase;
 
 trait CheckDataTableTrait
 {
     /**
      * @param array<string, class-string> $expectedClasses
      * @param string[] $ids
-     * @return void
      */
     private function checkDataTable(DataTable $dataTable, string $tableName, array $expectedClasses, array $ids): void
     {
-        /**
-         * @var TestCase $this
-         */
         // check expected table name
         $this->assertSame($tableName, $dataTable->name());
 

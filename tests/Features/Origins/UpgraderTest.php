@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\Fixtures\Origins\FakeGateway;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use Psr\Log\NullLogger;
 
-class UpgraderTest extends TestCase
+final class UpgraderTest extends TestCase
 {
     private Upgrader $upgrader;
 
@@ -50,8 +50,8 @@ class UpgraderTest extends TestCase
 
         $newOrigin = $this->upgrader->upgradeReview($review);
 
-        $this->assertEquals($newOrigin->name(), $origin->name());
-        $this->assertEquals($newOrigin->url(), $origin->url());
+        $this->assertSame($newOrigin->name(), $origin->name());
+        $this->assertSame($newOrigin->url(), $origin->url());
         $this->assertEquals($newOrigin->lastVersion(), $this->lastModified);
     }
 
@@ -88,7 +88,7 @@ class UpgraderTest extends TestCase
             $this->assertEquals(
                 $this->lastModified,
                 $origin->lastVersion(),
-                "The origin {$origin->name()} did not has the last version date"
+                "The origin {$origin->name()} did not has the last version date",
             );
         }
     }

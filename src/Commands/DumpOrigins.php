@@ -58,13 +58,13 @@ final class DumpOrigins implements CommandInterface
             new ConstantOrigin(
                 'CCE 1.1 - Fracciones arancelarias 2020',
                 "{$common}/c_FraccionArancelaria.xls",
-                destinationFilename: 'c_FraccionArancelaria_20170101.xls'
+                destinationFilename: 'c_FraccionArancelaria_20170101.xls',
             ),
             new ScrapingOrigin(
                 'CCE 1.1 - Fracciones arancelarias 20201228',
                 'http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm',
                 'c_FraccionArancelaria_20201228.xls',
-                '*Catálogo vigente del 28 de diciembre de 2020 al 11 de diciembre de 2022*'
+                '*Catálogo vigente del 28 de diciembre de 2020 al 11 de diciembre de 2022*',
             ),
             new ScrapingOrigin(
                 'CCE 1.1 - Fracciones arancelarias 20221212',

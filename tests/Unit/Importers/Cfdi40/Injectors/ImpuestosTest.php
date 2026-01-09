@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class ImpuestosTest extends TestCase
+final class ImpuestosTest extends TestCase
 {
     private string $sourceFile;
 

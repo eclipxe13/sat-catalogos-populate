@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class TiposNominasTest extends TestCase
+final class TiposNominasTest extends TestCase
 {
     private string $sourceFile;
 

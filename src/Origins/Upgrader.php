@@ -15,7 +15,7 @@ class Upgrader
     public function __construct(
         private readonly ResourcesGatewayInterface $gateway,
         private readonly string $destinationPath,
-        private readonly LoggerInterface $logger
+        private readonly LoggerInterface $logger,
     ) {
     }
 
@@ -86,7 +86,7 @@ class Upgrader
             'Actualizando %s desde %s en %s',
             $origin->name(),
             $origin->downloadUrl(),
-            $destination
+            $destination,
         ));
         $urlResponse = $this->gateway->get($origin->downloadUrl(), $destination);
         return $origin->withLastModified($urlResponse->lastModified());

@@ -16,7 +16,7 @@ final readonly class ScrapingReviewerLinkExtractor
 
     public static function fromUrlResponse(UrlResponse $response): self
     {
-        if (empty($response->body())) {
+        if ('' === $response->body()) {
             throw new RuntimeException('Content is empty');
         }
         $crawler = new Crawler($response->body(), $response->url());
@@ -28,7 +28,7 @@ final readonly class ScrapingReviewerLinkExtractor
         $link = $this->selectLink($search, $position);
         $downloadUrl = $link->getUri();
 
-        if (empty($downloadUrl)) {
+        if ('' === $downloadUrl) {
             throw new RuntimeException('The link was found but it does not contains the url to download');
         }
 
@@ -39,7 +39,7 @@ final readonly class ScrapingReviewerLinkExtractor
     {
         $elements = $this->crawler->filterXPath('//a')->reduce(
             fn (Crawler $linkElement): bool =>
-                ('' !== $text = $linkElement->text('')) && fnmatch($search, $text, FNM_CASEFOLD)
+                ('' !== $text = $linkElement->text('')) && fnmatch($search, $text, FNM_CASEFOLD),
         );
 
         if ($elements->count() > $position) {

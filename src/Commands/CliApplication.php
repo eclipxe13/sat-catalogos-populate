@@ -6,10 +6,23 @@ namespace PhpCfdi\SatCatalogosPopulate\Commands;
 
 use RuntimeException;
 
-class CliApplication
+final class CliApplication
 {
     /** @var array<string, array{class: class-string, description: string}> */
-    private array $commands;
+    private array $commands = [
+        'dump-origins' => [
+            'class' => DumpOrigins::class,
+            'description' => 'Hace un volcado del archivo de orígenes esperado',
+        ],
+        'update-origins' => [
+            'class' => UpdateOrigins::class,
+            'description' => 'Actualiza el archivo de orígenes desde un archivo o directorio',
+        ],
+        'update-database' => [
+            'class' => UpdateDatabase::class,
+            'description' => 'Actualiza la base de datos de catálogos desde un directorio',
+        ],
+    ];
 
     private string $executableName = '';
 
@@ -21,24 +34,6 @@ class CliApplication
     public function setExecutableName(string $executableName): void
     {
         $this->executableName = $executableName;
-    }
-
-    public function __construct()
-    {
-        $this->commands = [
-            'dump-origins' => [
-                'class' => DumpOrigins::class,
-                'description' => 'Hace un volcado del archivo de orígenes esperado',
-            ],
-            'update-origins' => [
-                'class' => UpdateOrigins::class,
-                'description' => 'Actualiza el archivo de orígenes desde un archivo o directorio',
-            ],
-            'update-database' => [
-                'class' => UpdateDatabase::class,
-                'description' => 'Actualiza la base de datos de catálogos desde un directorio',
-            ],
-        ];
     }
 
     public function run(string ...$arguments): int
@@ -114,9 +109,11 @@ class CliApplication
         $commandClassName = $this->getCommandClass($commandName);
         $description = $this->commands[$commandName]['description'];
         echo $commandName, ': ', $description, PHP_EOL;
-        /** @var callable $staticCallable phpstan work around */
         $staticCallable = $commandClassName . '::help';
-        /** @var string $helpOutput */
+        /**
+         * @var string $helpOutput
+         * @phpstan-ignore-next-line
+         */
         $helpOutput = call_user_func($staticCallable, $commandName);
         echo $helpOutput, PHP_EOL, PHP_EOL;
     }

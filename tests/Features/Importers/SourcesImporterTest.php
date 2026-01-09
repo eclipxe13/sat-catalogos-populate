@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\SourcesImporter;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use Psr\Log\NullLogger;
 
-class SourcesImporterTest extends TestCase
+final class SourcesImporterTest extends TestCase
 {
     public function testImportSourcesFromFolder(): void
     {
@@ -148,7 +148,7 @@ class SourcesImporterTest extends TestCase
         foreach ($expectedTables as $expectedTable) {
             $this->assertTrue(
                 $repository->hasTable($expectedTable),
-                "The table $expectedTable was not found in repository"
+                "The table $expectedTable was not found in repository",
             );
             $this->assertGreaterThan(0, $repository->getRecordCount($expectedTable));
         }

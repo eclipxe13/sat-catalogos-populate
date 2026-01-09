@@ -8,7 +8,7 @@ abstract class AbstractPipeArrayProcessor implements ArrayProcessorInterface
 {
     private readonly ArrayProcessorInterface $next;
 
-    public function __construct(ArrayProcessorInterface $next = null)
+    public function __construct(ArrayProcessorInterface|null $next = null)
     {
         $this->next = $next ?? new NullArrayProcessor();
     }

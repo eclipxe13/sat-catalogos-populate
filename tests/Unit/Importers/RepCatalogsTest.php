@@ -6,9 +6,10 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Importers;
 
 use PhpCfdi\SatCatalogosPopulate\Importers\Rep\Injectors\TiposCadenaPago;
 use PhpCfdi\SatCatalogosPopulate\Importers\RepCatalogs;
+use PhpCfdi\SatCatalogosPopulate\InjectorInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class RepCatalogsTest extends TestCase
+final class RepCatalogsTest extends TestCase
 {
     /**
      * @see RepCatalogs::createInjectors()
@@ -22,7 +23,7 @@ class RepCatalogsTest extends TestCase
         $importer = new RepCatalogs();
         $injectors = $importer->createInjectors('');
 
-        $injectorsClasses = array_map(fn ($item) => $item::class, $injectors->all());
+        $injectorsClasses = array_map(fn (InjectorInterface $item): string => $item::class, $injectors->all());
 
         $this->assertEquals(array_replace_recursive($injectorsClasses, $expectedInjectorsClasses), $injectorsClasses);
         $this->assertCount(count($expectedInjectorsClasses), $injectorsClasses);

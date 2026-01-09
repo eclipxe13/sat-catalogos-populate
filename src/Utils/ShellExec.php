@@ -11,7 +11,7 @@ class ShellExec
         private readonly string $command,
         private array $output = [],
         private int $exitStatus = -1,
-        private string $lastLine = ''
+        private string $lastLine = '',
     ) {
     }
 

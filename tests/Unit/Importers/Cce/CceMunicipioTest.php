@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceMunicipio;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\Municipios;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceMunicipioTest extends TestCase
+final class CceMunicipioTest extends TestCase
 {
     public function testImporterInstance(): void
     {

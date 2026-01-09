@@ -30,5 +30,5 @@ exit(call_user_func(
         }
     },
     $argv[1] ?? '',
-    $argv[2] ?? tempdir()
+    $argv[2] ?? tempdir(),
 ));

@@ -6,9 +6,10 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Importers;
 
 use PhpCfdi\SatCatalogosPopulate\Importers\Ccp31\Injectors;
 use PhpCfdi\SatCatalogosPopulate\Importers\Ccp31Catalogs;
+use PhpCfdi\SatCatalogosPopulate\InjectorInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class Ccp31CatalogsTest extends TestCase
+final class Ccp31CatalogsTest extends TestCase
 {
     /**
      * @see Ccp31Catalogs::createInjectors()
@@ -53,7 +54,7 @@ class Ccp31CatalogsTest extends TestCase
         $importer = new Ccp31Catalogs();
         $ccpInjectors = $importer->createInjectors('');
 
-        $injectorsClasses = array_map(fn ($item) => $item::class, $ccpInjectors->all());
+        $injectorsClasses = array_map(fn (InjectorInterface $item): string => $item::class, $ccpInjectors->all());
 
         $this->assertEquals(array_replace_recursive($injectorsClasses, $expectedInjectorsClasses), $injectorsClasses);
         $this->assertCount(count($expectedInjectorsClasses), $injectorsClasses);

@@ -15,7 +15,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class ClavesRetencionTest extends TestCase
+final class ClavesRetencionTest extends TestCase
 {
     private string $sourceFile;
 

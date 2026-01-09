@@ -18,9 +18,10 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Nomina\Injectors\TiposOtrosPagos;
 use PhpCfdi\SatCatalogosPopulate\Importers\Nomina\Injectors\TiposPercepciones;
 use PhpCfdi\SatCatalogosPopulate\Importers\Nomina\Injectors\TiposRegimenes;
 use PhpCfdi\SatCatalogosPopulate\Importers\NominaCatalogs;
+use PhpCfdi\SatCatalogosPopulate\InjectorInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class NominaCatalogsTest extends TestCase
+final class NominaCatalogsTest extends TestCase
 {
     /**
      * @see NominaCatalogs::createInjectors()
@@ -46,7 +47,7 @@ class NominaCatalogsTest extends TestCase
         $importer = new NominaCatalogs();
         $injectors = $importer->createInjectors('');
 
-        $injectorsClasses = array_map(fn ($item) => $item::class, $injectors->all());
+        $injectorsClasses = array_map(fn (InjectorInterface $item): string => $item::class, $injectors->all());
 
         $this->assertEquals(array_replace_recursive($injectorsClasses, $expectedInjectorsClasses), $injectorsClasses);
         $this->assertCount(count($expectedInjectorsClasses), $injectorsClasses);

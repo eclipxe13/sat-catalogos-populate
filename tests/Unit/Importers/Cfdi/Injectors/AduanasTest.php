@@ -12,7 +12,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class AduanasTest extends TestCase
+final class AduanasTest extends TestCase
 {
     private string $sourceFile;
 
@@ -54,7 +54,7 @@ class AduanasTest extends TestCase
         $this->assertSame('cfdi_aduanas', $dataTable->name());
         $this->assertSame(
             ['id', 'texto', 'vigencia_desde', 'vigencia_hasta'],
-            $dataTable->fields()->keys()
+            $dataTable->fields()->keys(),
         );
     }
 }

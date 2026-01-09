@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers;
 use PhpCfdi\SatCatalogosPopulate\Tests\Fixtures\Origins\FakeGateway;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class ReviewersTest extends TestCase
+final class ReviewersTest extends TestCase
 {
     private Reviewers $reviewers;
 

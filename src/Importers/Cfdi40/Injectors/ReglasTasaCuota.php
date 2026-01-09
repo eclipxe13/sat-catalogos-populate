@@ -67,7 +67,7 @@ class ReglasTasaCuota extends AbstractCsvInjector implements InjectorInterface
                 new DateDataField('vigencia_hasta'),
             ]),
             [],
-            true
+            true,
         );
     }
 }

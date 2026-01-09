@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Importers\Cfdi40\Injectors;
 
+use http\Exception\InvalidArgumentException;
 use PhpCfdi\SatCatalogosPopulate\AbstractCsvInjector;
 use PhpCfdi\SatCatalogosPopulate\Database\BoolDataField;
 use PhpCfdi\SatCatalogosPopulate\Database\DataFields;
@@ -49,7 +50,8 @@ class FormasDePago extends AbstractCsvInjector implements InjectorInterface
 
     public function dataTable(): DataTable
     {
-        $pattern = function (string $input): string {
+        $pattern = function ($input): string {
+            $input = is_scalar($input) ? strval($input) : throw new InvalidArgumentException('Unexpected input type');
             if ('No' === $input) {
                 return '';
             }

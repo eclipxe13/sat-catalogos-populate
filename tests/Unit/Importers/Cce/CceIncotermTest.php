@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceIncoterm;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\Incoterms;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceIncotermTest extends TestCase
+final class CceIncotermTest extends TestCase
 {
     public function testImporterInstance(): void
     {

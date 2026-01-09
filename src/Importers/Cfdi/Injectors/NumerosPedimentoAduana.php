@@ -49,7 +49,7 @@ class NumerosPedimentoAduana extends AbstractCsvInjector implements InjectorInte
                 new DateDataField('vigencia_hasta'),
             ]),
             [],
-            true
+            true,
         );
     }
 }

@@ -47,13 +47,13 @@ class CsvFolderJoinFiles
     {
         $files = array_filter(
             array_map(
-                function ($path): array {
+                function (string $path): array {
                     $file = basename($path);
                     $matches = [];
                     if (
-                        ! preg_match('/^ *(.+)_Parte_([0-9]+) *\.csv$/', $file, $matches)
-                        && ! preg_match('/^ *(.+) \(Parte ([0-9]+)\) *\.csv$/', $file, $matches)
-                        && ! preg_match('/^ *(.+)_([0-9]+) *\.csv$/', $file, $matches)
+                        ! preg_match('/^ *(.+)_Parte_(\d+) *\.csv$/', $file, $matches)
+                        && ! preg_match('/^ *(.+) \(Parte (\d+)\) *\.csv$/', $file, $matches)
+                        && ! preg_match('/^ *(.+)_(\d+) *\.csv$/', $file, $matches)
                     ) {
                         return [];
                     }
@@ -63,8 +63,8 @@ class CsvFolderJoinFiles
                         'source' => $path,
                     ];
                 },
-                glob($csvFolder . '/*.csv') ?: []
-            )
+                glob($csvFolder . '/*.csv') ?: [],
+            ),
         );
 
         uasort($files, $this->compareFiles(...));
@@ -146,7 +146,10 @@ class CsvFolderJoinFiles
     {
         // explode values, trim values, remove empty values at end and implode values back
         return implode(',', array_rtrim(
-            array_map(static fn (?string $value): string => trim($value ?? ''), str_getcsv($current))
+            array_map(
+                static fn (string|null $value): string => trim($value ?? ''),
+                str_getcsv($current, escape: '\\'),
+            ),
         ));
     }
 

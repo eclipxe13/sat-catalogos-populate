@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\NullLogger;
 
-class ImportTest extends TestCase
+final class ImportTest extends TestCase
 {
     public function testImportCfdi(): void
     {

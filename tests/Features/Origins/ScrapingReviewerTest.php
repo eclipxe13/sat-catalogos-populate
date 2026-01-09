@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use RuntimeException;
 
-class ScrapingReviewerTest extends TestCase
+final class ScrapingReviewerTest extends TestCase
 {
     private ScrapingReviewer $reviewer;
 
@@ -37,10 +37,10 @@ class ScrapingReviewerTest extends TestCase
         $this->urlFooFile = 'http://example.com/files/foo.txt';
         $this->urlPageToScrap = 'http://example.com/index.html';
         $fakeGateway->add( // web page to scrap
-            new UrlResponse($this->urlPageToScrap, 200, new DateTimeImmutable('2021-01-02'), $webpage)
+            new UrlResponse($this->urlPageToScrap, 200, new DateTimeImmutable('2021-01-02'), $webpage),
         );
         $fakeGateway->add( // foo file to download
-            new UrlResponse($this->urlFooFile, 200, new DateTimeImmutable('2021-01-05'), '')
+            new UrlResponse($this->urlFooFile, 200, new DateTimeImmutable('2021-01-05'), ''),
         );
     }
 
@@ -61,7 +61,7 @@ class ScrapingReviewerTest extends TestCase
         $this->assertSame(
             $this->urlFooFile,
             $reviewedOrigin->downloadUrl(),
-            'The reviewed origin should be expected url'
+            'The reviewed origin should be expected url',
         );
     }
 

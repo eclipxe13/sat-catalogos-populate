@@ -47,14 +47,15 @@ class Repository
     {
         $stmt = $this->pdo->prepare($sql);
         if (false === $stmt->execute($values)) {
+            /** @var array{string, int, string} $errorInfo */
             $errorInfo = $stmt->errorInfo();
-            throw new PDOException(sprintf('[%s] %s', $errorInfo[1] ?? 'UNDEF', $errorInfo[2] ?? 'Unknown error'));
+            throw new PDOException(sprintf('[%s] %s', $errorInfo[1], $errorInfo[2]));
         }
     }
 
     /**
      * @param mixed[] $values
-     * @return array<int, array<string, string|null>>
+     * @return list<array<string, string|null>>
      */
     public function queryArray(string $sql, array $values = []): array
     {
@@ -90,7 +91,7 @@ class Repository
     }
 
     /** @param array<string, scalar|null> $values */
-    public function queryOne(string $sql, array $values = []): ?string
+    public function queryOne(string $sql, array $values = []): string|null
     {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($values);
@@ -103,20 +104,21 @@ class Repository
     }
 
     /** @param scalar|null $value */
-    private function convertScalarNullToStringValue($value): ?string
+    private function convertScalarNullToStringValue($value): string|null
     {
         return (null === $value) ? null : (string) $value;
     }
 
     /**
-     * @param array<scalar|null> $values
-     * @return array<string|null>
+     * @template TKey
+     * @param array<TKey, scalar|null> $values
+     * @return array<TKey, string|null>
      */
     private function convertScalarNullToStringArray(array $values): array
     {
         return array_map(
-            fn ($value): ?string => $this->convertScalarNullToStringValue($value),
-            $values
+            fn ($value): string|null => $this->convertScalarNullToStringValue($value),
+            $values,
         );
     }
 }

@@ -14,11 +14,11 @@ final class ToBeDefinedDataField extends PreprocessDataField
     /** @param string[] $toBeDefinedTexts */
     public function __construct(
         DataFieldInterface $nextDataField,
-        private readonly array $toBeDefinedTexts = ['Por definir']
+        private readonly array $toBeDefinedTexts = ['Por definir'],
     ) {
         parent::__construct(
             fn ($input) => $this->matchToBeDefined($input) ? '' : $input,
-            $nextDataField
+            $nextDataField,
         );
     }
 

@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 use UnexpectedValueException;
 
-class DataFieldsTest extends TestCase
+final class DataFieldsTest extends TestCase
 {
     public function testCreateObjectWithAnArrayOfDataFields(): void
     {

@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class ClavesPedimentosTest extends TestCase
+final class ClavesPedimentosTest extends TestCase
 {
     private string $sourceFile;
 

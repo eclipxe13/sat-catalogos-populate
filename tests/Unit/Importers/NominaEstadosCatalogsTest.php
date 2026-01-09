@@ -6,9 +6,10 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Importers;
 
 use PhpCfdi\SatCatalogosPopulate\Importers\Nomina\Injectors\Estados;
 use PhpCfdi\SatCatalogosPopulate\Importers\NominaEstadosCatalogs;
+use PhpCfdi\SatCatalogosPopulate\InjectorInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class NominaEstadosCatalogsTest extends TestCase
+final class NominaEstadosCatalogsTest extends TestCase
 {
     /**
      * @see NominaCatalogs::createInjectors()
@@ -22,7 +23,7 @@ class NominaEstadosCatalogsTest extends TestCase
         $importer = new NominaEstadosCatalogs();
         $injectors = $importer->createInjectors('');
 
-        $injectorsClasses = array_map(fn ($item) => $item::class, $injectors->all());
+        $injectorsClasses = array_map(fn (InjectorInterface $item): string => $item::class, $injectors->all());
 
         $this->assertEquals(array_replace_recursive($injectorsClasses, $expectedInjectorsClasses), $injectorsClasses);
         $this->assertCount(count($expectedInjectorsClasses), $injectorsClasses);

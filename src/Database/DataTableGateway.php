@@ -61,7 +61,7 @@ class DataTableGateway
             $pkDefinition = 'PRIMARY KEY ('
                 . implode(', ', array_map(
                     fn (string $input): string => $this->repository->escapeName($input),
-                    $this->dataTable->primaryKey()
+                    $this->dataTable->primaryKey(),
                 ))
                 . ')';
         }

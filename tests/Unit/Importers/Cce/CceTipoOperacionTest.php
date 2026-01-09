@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceTipoOperacion;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\TiposOperacion;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceTipoOperacionTest extends TestCase
+final class CceTipoOperacionTest extends TestCase
 {
     public function testImporterInstance(): void
     {

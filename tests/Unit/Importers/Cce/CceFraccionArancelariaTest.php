@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceFraccionArancelaria;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\FraccionesArancelarias;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceFraccionArancelariaTest extends TestCase
+final class CceFraccionArancelariaTest extends TestCase
 {
     public function testImporterInstance(): void
     {

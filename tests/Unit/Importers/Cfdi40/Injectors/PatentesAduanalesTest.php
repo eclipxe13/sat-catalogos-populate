@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class PatentesAduanalesTest extends TestCase
+final class PatentesAduanalesTest extends TestCase
 {
     private string $sourceFile;
 
