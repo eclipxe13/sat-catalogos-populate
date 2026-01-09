@@ -8,9 +8,8 @@ RUN set -e \
     && apt-get update -y \
     && apt-get dist-upgrade -y \
     # Install repository PHP from Ondřej Surý \
-    && apt-get install -y lsb-release ca-certificates curl \
-    && curl --no-progress-meter https://packages.sury.org/php/apt.gpg --output /etc/apt/trusted.gpg.d/php.gpg \
-    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
+    && apt install -y curl \
+    && curl --no-progress-meter https://packages.sury.org/php/README.txt | bash \
     && apt-get update -y \
     && apt-get dist-upgrade -y \
     # Install required packages \
