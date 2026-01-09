@@ -24,8 +24,8 @@ RUN set -e \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -e \
-    # Set up PHP \
-    && find /etc/php/ -type f -name "*.ini" -exec sed -i 's/^variables_order.*/variables_order=EGPCS/' "{}" \; \
+    # Set up PHP: variables_order & date.timezone \
+    && find /etc/php/ -type f -name "*.ini" -exec sed -i -E -e 's/^;?variables_order.*/variables_order=EGPCS/' -e 's#^;?date.timezone.*#date.timezone = America/Mexico_City#' "{}" \; \
     && php -i
 
 RUN set -e \
