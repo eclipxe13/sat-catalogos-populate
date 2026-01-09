@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Commands;
 
 use RuntimeException;
 
-class CliApplication
+final class CliApplication
 {
     /** @var array<string, array{class: class-string, description: string}> */
     private array $commands = [
