@@ -8,9 +8,11 @@ use PhpCfdi\SatCatalogosPopulate\Database\Repository;
 use PhpCfdi\SatCatalogosPopulate\Importers\CfdiCatalogs;
 use PhpCfdi\SatCatalogosPopulate\Tests\Fixtures\Converters\FakeXlsToCsvFolder;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\NullLogger;
 
+#[AllowMockObjectsWithoutExpectations]
 final class ImportTest extends TestCase
 {
     public function testImportCfdi(): void

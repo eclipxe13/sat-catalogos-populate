@@ -10,7 +10,9 @@ use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingOrigin;
 use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingReviewer;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+#[AllowMockObjectsWithoutExpectations]
 final class ScrapingReviewerTest extends TestCase
 {
     private ScrapingReviewer $reviewer;

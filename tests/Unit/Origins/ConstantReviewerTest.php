@@ -10,7 +10,9 @@ use PhpCfdi\SatCatalogosPopulate\Origins\ConstantReviewer;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+#[AllowMockObjectsWithoutExpectations]
 final class ConstantReviewerTest extends TestCase
 {
     private ConstantReviewer $reviewer;
