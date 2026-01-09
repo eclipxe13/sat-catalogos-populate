@@ -21,7 +21,7 @@ class CsvFile implements SeekableIterator
 
     private readonly ArrayProcessorInterface $rowProcessor;
 
-    public function __construct(string $filename, ArrayProcessorInterface $rowProcessor = null)
+    public function __construct(string $filename, ArrayProcessorInterface|null $rowProcessor = null)
     {
         if ('' === $filename) {
             throw new UnexpectedValueException('The filename cannot be empty');
@@ -109,8 +109,8 @@ class CsvFile implements SeekableIterator
         $contents = $this->file->current();
         $contents = (! is_string($contents)) ? '' : $contents;
         $values = array_map(
-            fn ($value) => (is_scalar($value)) ? $value : '',
-            str_getcsv($contents),
+            static fn ($value) => (is_scalar($value)) ? $value : '',
+            str_getcsv($contents, escape: '\\'),
         );
         return $this->rowProcessor->execute($values);
     }

@@ -15,7 +15,7 @@ class WebResourcesGateway implements ResourcesGatewayInterface
 {
     private readonly GuzzleClient $client;
 
-    public function __construct(GuzzleClient $client = null)
+    public function __construct(GuzzleClient|null $client = null)
     {
         $this->client = $client ?? new GuzzleClient();
     }

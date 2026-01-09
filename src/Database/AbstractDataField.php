@@ -12,7 +12,7 @@ abstract class AbstractDataField implements DataFieldInterface
     /**
      * @param (callable(scalar):scalar)|null $transformFunction
      */
-    public function __construct(private readonly string $name, ?callable $transformFunction = null)
+    public function __construct(private readonly string $name, callable|null $transformFunction = null)
     {
         if (null === $transformFunction) {
             $transformFunction = [$this, 'defaultTransformFunction'];

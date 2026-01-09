@@ -15,7 +15,7 @@ class UrlResponse
     public function __construct(
         private readonly string $url,
         private readonly int $httpStatus,
-        DateTimeImmutable $lastModified = null,
+        DateTimeImmutable|null $lastModified = null,
         private readonly Stringable|string $body = '',
     ) {
         $this->lastModified = ($lastModified) ?: new DateTimeImmutable();

@@ -9,7 +9,7 @@ class IgnoreColumns extends AbstractPipeArrayProcessor implements ArrayProcessor
     /** @var array<int, int> */
     private readonly array $columns;
 
-    public function __construct(ArrayProcessorInterface $next = null, int ...$columns)
+    public function __construct(ArrayProcessorInterface|null $next = null, int ...$columns)
     {
         parent::__construct($next);
         $this->columns = array_values($columns);
