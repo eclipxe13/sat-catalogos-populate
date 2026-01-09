@@ -157,13 +157,10 @@ class CsvFolderJoinFiles
     public function lastLineContains(string $filename, array $searchterms): bool
     {
         $lastline = $this->obtainFileLastLine($filename);
-        foreach ($searchterms as $search) {
-            if (str_contains($lastline, $search)) {
-                return true;
-            }
-        }
-
-        return false;
+        return array_any(
+            $searchterms,
+            static fn ($search) => str_contains($lastline, (string) $search),
+        );
     }
 
     public function obtainFileLastLine(string $filename): string

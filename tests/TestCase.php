@@ -32,6 +32,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     public function utilMimeType(string $filename): string
     {
-        return (new finfo())->file($filename, FILEINFO_MIME_TYPE) ?: '';
+        return new finfo()->file($filename, FILEINFO_MIME_TYPE) ?: '';
     }
 }

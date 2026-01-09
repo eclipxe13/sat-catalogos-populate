@@ -73,12 +73,12 @@ final class UpdateOrigins implements CommandInterface
 
     protected function originsRestore(): Origins
     {
-        return (new OriginsIO())->readFile($this->getOriginsFile());
+        return new OriginsIO()->readFile($this->getOriginsFile());
     }
 
     protected function originsStore(Origins $origins): void
     {
-        (new OriginsIO())->writeFile($this->getOriginsFile(), $origins);
+        new OriginsIO()->writeFile($this->getOriginsFile(), $origins);
     }
 
     public function createResourcesGateway(): WebResourcesGateway
