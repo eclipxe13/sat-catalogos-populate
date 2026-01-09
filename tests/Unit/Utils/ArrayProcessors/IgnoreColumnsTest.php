@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Utils\ArrayProcessors;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\IgnoreColumns;
 
-class IgnoreColumnsTest extends TestCase
+final class IgnoreColumnsTest extends TestCase
 {
     public function testProcessorIgnoreColumns(): void
     {

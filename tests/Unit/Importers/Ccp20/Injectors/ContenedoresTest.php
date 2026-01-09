@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class ContenedoresTest extends TestCase
+final class ContenedoresTest extends TestCase
 {
     private string $sourceFile;
 

@@ -16,7 +16,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class TiposRegimenesTest extends TestCase
+final class TiposRegimenesTest extends TestCase
 {
     private string $sourceFile;
 

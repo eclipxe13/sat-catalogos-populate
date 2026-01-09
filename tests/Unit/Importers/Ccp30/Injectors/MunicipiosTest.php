@@ -16,7 +16,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class MunicipiosTest extends TestCase
+final class MunicipiosTest extends TestCase
 {
     use CheckDataTableTrait;
 

@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\SourcesImporter;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use Psr\Log\NullLogger;
 
-class SourcesImporterTest extends TestCase
+final class SourcesImporterTest extends TestCase
 {
     public function testImportSourcesFromFolder(): void
     {

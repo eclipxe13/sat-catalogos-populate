@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogosPopulate\Injectors;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use Psr\Log\NullLogger;
 
-class InjectorsTest extends TestCase
+final class InjectorsTest extends TestCase
 {
     public function testInjectorCanInjectAWellKnownSourceFile(): void
     {

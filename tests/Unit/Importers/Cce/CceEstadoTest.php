@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceEstado;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\Estados;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceEstadoTest extends TestCase
+final class CceEstadoTest extends TestCase
 {
     public function testImporterInstance(): void
     {

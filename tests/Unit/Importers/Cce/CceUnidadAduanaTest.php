@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceUnidadAduana;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\UnidadesAduana;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceUnidadAduanaTest extends TestCase
+final class CceUnidadAduanaTest extends TestCase
 {
     public function testImporterInstance(): void
     {

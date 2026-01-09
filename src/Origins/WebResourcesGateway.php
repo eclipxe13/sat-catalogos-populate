@@ -52,7 +52,7 @@ class WebResourcesGateway implements ResourcesGatewayInterface
     public function get(string $url, string $destination): UrlResponse
     {
         $response = $this->obtainResponse('GET', $url);
-        if (200 === $response->getStatusCode() && ! empty($destination)) {
+        if (200 === $response->getStatusCode() && '' !== $destination) {
             file_put_contents($destination, $response->getBody());
         }
 

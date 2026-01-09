@@ -6,9 +6,10 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Importers;
 
 use PhpCfdi\SatCatalogosPopulate\Importers\Ret20\Injectors;
 use PhpCfdi\SatCatalogosPopulate\Importers\Ret20Catalogs;
+use PhpCfdi\SatCatalogosPopulate\InjectorInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class Ret20CatalogsTest extends TestCase
+final class Ret20CatalogsTest extends TestCase
 {
     /**
      * @see Ret20Catalogs::createInjectors()
@@ -31,7 +32,7 @@ class Ret20CatalogsTest extends TestCase
         $importer = new Ret20Catalogs();
         $retInjectors = $importer->createInjectors('');
 
-        $injectorsClasses = array_map(fn ($item) => $item::class, $retInjectors->all());
+        $injectorsClasses = array_map(fn (InjectorInterface $item): string => $item::class, $retInjectors->all());
 
         $this->assertEquals(array_replace_recursive($injectorsClasses, $expectedInjectorsClasses), $injectorsClasses);
         $this->assertCount(count($expectedInjectorsClasses), $injectorsClasses);

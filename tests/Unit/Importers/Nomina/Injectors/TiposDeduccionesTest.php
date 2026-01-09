@@ -16,7 +16,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class TiposDeduccionesTest extends TestCase
+final class TiposDeduccionesTest extends TestCase
 {
     private string $sourceFile;
 

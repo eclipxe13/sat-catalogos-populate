@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\tempdir;
 
-class XlsxToCsvFolderConverterTest extends TestCase
+final class XlsxToCsvFolderConverterTest extends TestCase
 {
     public function testConvertWithSampleFiles(): void
     {

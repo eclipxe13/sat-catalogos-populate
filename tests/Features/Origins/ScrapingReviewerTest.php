@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use RuntimeException;
 
-class ScrapingReviewerTest extends TestCase
+final class ScrapingReviewerTest extends TestCase
 {
     private ScrapingReviewer $reviewer;
 

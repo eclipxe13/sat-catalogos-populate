@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceMotivoTraslado;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\MotivosTraslado;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceMotivoTrasladoTest extends TestCase
+final class CceMotivoTrasladoTest extends TestCase
 {
     public function testImporterInstance(): void
     {

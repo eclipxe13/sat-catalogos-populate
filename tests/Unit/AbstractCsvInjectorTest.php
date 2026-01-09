@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Log\NullLogger;
 use RuntimeException;
 
-class AbstractCsvInjectorTest extends TestCase
+final class AbstractCsvInjectorTest extends TestCase
 {
     public function testCreateFakeCsvInjector(): void
     {
@@ -27,7 +27,7 @@ class AbstractCsvInjectorTest extends TestCase
         $sourceFile = $this->utilFilePath('sample.csv');
         $injector = new FakeCsvInjector($sourceFile);
 
-        $this->assertEquals($sourceFile, $injector->sourceFile());
+        $this->assertSame($sourceFile, $injector->sourceFile());
     }
 
     public function testValidateWithValidSourcefile(): void

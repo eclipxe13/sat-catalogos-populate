@@ -91,7 +91,7 @@ class Repository
     }
 
     /** @param array<string, scalar|null> $values */
-    public function queryOne(string $sql, array $values = []): ?string
+    public function queryOne(string $sql, array $values = []): string|null
     {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($values);
@@ -104,7 +104,7 @@ class Repository
     }
 
     /** @param scalar|null $value */
-    private function convertScalarNullToStringValue($value): ?string
+    private function convertScalarNullToStringValue($value): string|null
     {
         return (null === $value) ? null : (string) $value;
     }
@@ -117,7 +117,7 @@ class Repository
     private function convertScalarNullToStringArray(array $values): array
     {
         return array_map(
-            fn ($value): ?string => $this->convertScalarNullToStringValue($value),
+            fn ($value): string|null => $this->convertScalarNullToStringValue($value),
             $values,
         );
     }

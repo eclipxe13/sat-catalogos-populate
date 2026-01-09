@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogosPopulate\Database\DateDataField;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 
-class DateDataFieldTest extends TestCase
+final class DateDataFieldTest extends TestCase
 {
     public function testTransformWithInvalidFormatThrowsException(): void
     {

@@ -47,13 +47,13 @@ class CsvFolderJoinFiles
     {
         $files = array_filter(
             array_map(
-                function ($path): array {
+                function (string $path): array {
                     $file = basename($path);
                     $matches = [];
                     if (
-                        ! preg_match('/^ *(.+)_Parte_([0-9]+) *\.csv$/', $file, $matches)
-                        && ! preg_match('/^ *(.+) \(Parte ([0-9]+)\) *\.csv$/', $file, $matches)
-                        && ! preg_match('/^ *(.+)_([0-9]+) *\.csv$/', $file, $matches)
+                        ! preg_match('/^ *(.+)_Parte_(\d+) *\.csv$/', $file, $matches)
+                        && ! preg_match('/^ *(.+) \(Parte (\d+)\) *\.csv$/', $file, $matches)
+                        && ! preg_match('/^ *(.+)_(\d+) *\.csv$/', $file, $matches)
                     ) {
                         return [];
                     }

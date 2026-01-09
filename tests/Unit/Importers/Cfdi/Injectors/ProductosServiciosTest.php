@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class ProductosServiciosTest extends TestCase
+final class ProductosServiciosTest extends TestCase
 {
     private string $sourceFile;
 

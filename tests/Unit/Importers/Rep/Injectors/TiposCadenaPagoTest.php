@@ -15,7 +15,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class TiposCadenaPagoTest extends TestCase
+final class TiposCadenaPagoTest extends TestCase
 {
     private string $sourceFile;
 

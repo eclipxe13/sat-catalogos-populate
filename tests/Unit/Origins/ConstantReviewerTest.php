@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\OriginInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class ConstantReviewerTest extends TestCase
+final class ConstantReviewerTest extends TestCase
 {
     private ConstantReviewer $reviewer;
 

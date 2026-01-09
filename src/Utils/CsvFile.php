@@ -107,9 +107,9 @@ class CsvFile implements SeekableIterator
             return [];
         }
         $contents = $this->file->current();
-        $contents = (! is_string($contents)) ? '' : $contents;
+        $contents = (is_string($contents)) ? $contents : '';
         $values = array_map(
-            static fn ($value) => (is_scalar($value)) ? $value : '',
+            static fn ($value): string => (is_scalar($value)) ? $value : '',
             str_getcsv($contents, escape: '\\'),
         );
         return $this->rowProcessor->execute($values);

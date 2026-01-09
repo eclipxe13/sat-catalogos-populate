@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cfdi\Injectors\TiposComprobantes;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use Psr\Log\NullLogger;
 
-class ImportTiposComprobantesTest extends TestCase
+final class ImportTiposComprobantesTest extends TestCase
 {
     private Repository $repository;
 

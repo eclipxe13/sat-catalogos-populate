@@ -17,7 +17,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class ReglasTasaCuotaTest extends TestCase
+final class ReglasTasaCuotaTest extends TestCase
 {
     private string $sourceFile;
 

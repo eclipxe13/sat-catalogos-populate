@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\OriginsIO;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginsTranslator;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class OriginsReaderTest extends TestCase
+final class OriginsReaderTest extends TestCase
 {
     public function testReadOriginsFromFile(): void
     {

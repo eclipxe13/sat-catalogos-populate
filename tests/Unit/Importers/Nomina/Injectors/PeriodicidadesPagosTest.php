@@ -16,7 +16,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class PeriodicidadesPagosTest extends TestCase
+final class PeriodicidadesPagosTest extends TestCase
 {
     private string $sourceFile;
 

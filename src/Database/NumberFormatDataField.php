@@ -8,7 +8,7 @@ class NumberFormatDataField extends TextDataField implements DataFieldInterface
 {
     public function __construct(string $name, int $decimals)
     {
-        parent::__construct($name, function ($input) use ($decimals) {
+        parent::__construct($name, function ($input) use ($decimals): string {
             if ('' === $input) {
                 return '';
             }

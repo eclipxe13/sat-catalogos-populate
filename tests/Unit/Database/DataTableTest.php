@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogosPopulate\Database\DataTable;
 use PhpCfdi\SatCatalogosPopulate\Database\TextDataField;
 use PHPUnit\Framework\TestCase;
 
-class DataTableTest extends TestCase
+final class DataTableTest extends TestCase
 {
     public function testDataTableRequiereNotEmptyDataFields(): void
     {

@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Log\NullLogger;
 use RuntimeException;
 
-class CodigosPostalesTest extends TestCase
+final class CodigosPostalesTest extends TestCase
 {
     private string $sourceFile;
 

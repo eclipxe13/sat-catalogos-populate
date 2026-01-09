@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class CsvFileTest extends TestCase
+final class CsvFileTest extends TestCase
 {
     public function testConstructor(): void
     {
@@ -104,10 +104,10 @@ class CsvFileTest extends TestCase
         $csv = new CsvFile($this->utilFilePath('sample.csv'), new RightTrim());
 
         $contents = $csv->readLine();
-        $this->assertEquals($expected, $contents);
+        $this->assertSame($expected, $contents);
         $this->assertSame(0, $csv->position());
 
-        $this->assertEquals($expected, $csv->readLine());
+        $this->assertSame($expected, $csv->readLine());
     }
 
     public function testIterator(): void
@@ -128,7 +128,7 @@ class CsvFileTest extends TestCase
         }
 
         $this->assertSame(7, $count);
-        $this->assertEquals($expectedFirst, $first);
-        $this->assertEquals($expectedLast, $last);
+        $this->assertSame($expectedFirst, $first);
+        $this->assertSame($expectedLast, $last);
     }
 }

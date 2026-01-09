@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class IncotermsTest extends TestCase
+final class IncotermsTest extends TestCase
 {
     private string $sourceFile;
 

@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use PHPUnit\Framework\Attributes\TestWith;
 use RuntimeException;
 
-class FormasDePagoTest extends TestCase
+final class FormasDePagoTest extends TestCase
 {
     private string $sourceFile;
 

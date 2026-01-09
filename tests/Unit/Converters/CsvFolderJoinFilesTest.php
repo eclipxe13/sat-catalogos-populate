@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\tempname;
 
-class CsvFolderJoinFilesTest extends TestCase
+final class CsvFolderJoinFilesTest extends TestCase
 {
     public function testObtainFilesThatAreSplitted(): void
     {

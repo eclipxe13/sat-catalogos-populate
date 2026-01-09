@@ -13,7 +13,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class MetodosDePagoTest extends TestCase
+final class MetodosDePagoTest extends TestCase
 {
     private string $sourceFile;
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Importers;
 
+use PhpCfdi\SatCatalogosPopulate\ImporterInterface;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce20\CceClavePedimento;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce20\CceColonia;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce20\CceEstado;
@@ -17,7 +18,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce20\CceUnidadAduana;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce20Catalogs;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class Cce20CatalogsTest extends TestCase
+final class Cce20CatalogsTest extends TestCase
 {
     /**
      * @see Cce20Catalogs::createImporters()
@@ -40,7 +41,7 @@ class Cce20CatalogsTest extends TestCase
         $importer = new Cce20Catalogs();
         $importers = array_values($importer->createImporters());
 
-        $importersClasses = array_map(fn ($item) => $item::class, $importers);
+        $importersClasses = array_map(fn (ImporterInterface $item): string => $item::class, $importers);
 
         $this->assertEquals(array_replace_recursive($importersClasses, $expectedInjectorsClasses), $importersClasses);
         $this->assertCount(count($expectedInjectorsClasses), $importersClasses);

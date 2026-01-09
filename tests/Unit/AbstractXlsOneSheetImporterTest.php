@@ -10,7 +10,7 @@ use PhpCfdi\SatCatalogosPopulate\Tests\Fixtures\FakeXlsOneSheetImporter;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 use Psr\Log\NullLogger;
 
-class AbstractXlsOneSheetImporterTest extends TestCase
+final class AbstractXlsOneSheetImporterTest extends TestCase
 {
     public function testImplementation(): void
     {

@@ -22,9 +22,10 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cfdi\Injectors\TiposFactores;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cfdi\Injectors\TiposRelaciones;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cfdi\Injectors\UsosCfdi;
 use PhpCfdi\SatCatalogosPopulate\Importers\CfdiCatalogs;
+use PhpCfdi\SatCatalogosPopulate\InjectorInterface;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CfdiCatalogsTest extends TestCase
+final class CfdiCatalogsTest extends TestCase
 {
     /**
      * @see CfdiCatalogs::createInjectors()
@@ -54,7 +55,7 @@ class CfdiCatalogsTest extends TestCase
         $importer = new CfdiCatalogs();
         $cfdiInjectors = $importer->createInjectors('');
 
-        $injectorsClasses = array_map(fn ($item) => $item::class, $cfdiInjectors->all());
+        $injectorsClasses = array_map(fn (InjectorInterface $item): string => $item::class, $cfdiInjectors->all());
 
         $this->assertEquals(array_replace_recursive($injectorsClasses, $expectedInjectorsClasses), $injectorsClasses);
         $this->assertCount(count($expectedInjectorsClasses), $injectorsClasses);

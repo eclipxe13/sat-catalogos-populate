@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors\RightTrim;
 use PhpCfdi\SatCatalogosPopulate\Utils\CsvFile;
 use RuntimeException;
 
-class TiposTraficoTest extends TestCase
+final class TiposTraficoTest extends TestCase
 {
     private string $sourceFile;
 

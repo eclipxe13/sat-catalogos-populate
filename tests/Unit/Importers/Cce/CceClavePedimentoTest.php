@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\Importers\Cce\CceClavePedimento;
 use PhpCfdi\SatCatalogosPopulate\Importers\Cce\Injectors\ClavesPedimentos;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class CceClavePedimentoTest extends TestCase
+final class CceClavePedimentoTest extends TestCase
 {
     public function testImporterInstance(): void
     {

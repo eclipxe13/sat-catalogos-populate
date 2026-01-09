@@ -58,7 +58,7 @@ final class OriginsTranslator implements OriginsTranslatorInterface
         );
     }
 
-    public function dateTimeFromStringOrNull(string $value): ?DateTimeImmutable
+    public function dateTimeFromStringOrNull(string $value): DateTimeImmutable|null
     {
         /** @noinspection PhpUnhandledExceptionInspection */
         return ('' !== $value) ? new DateTimeImmutable($value) : null;

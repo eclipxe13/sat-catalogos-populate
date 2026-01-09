@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\UrlResponse;
 use PhpCfdi\SatCatalogosPopulate\Tests\Fixtures\Origins\FakeGateway;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
 
-class ConstantReviewerTest extends TestCase
+final class ConstantReviewerTest extends TestCase
 {
     private ConstantReviewer $reviewer;
 

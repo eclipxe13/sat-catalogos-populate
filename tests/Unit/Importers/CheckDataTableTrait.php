@@ -12,7 +12,6 @@ trait CheckDataTableTrait
     /**
      * @param array<string, class-string> $expectedClasses
      * @param string[] $ids
-     * @return void
      */
     private function checkDataTable(DataTable $dataTable, string $tableName, array $expectedClasses, array $ids): void
     {
