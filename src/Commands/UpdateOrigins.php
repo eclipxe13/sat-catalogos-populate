@@ -17,7 +17,7 @@ use RuntimeException;
 
 final class UpdateOrigins implements CommandInterface
 {
-    private const DEFAULT_ORIGINS_FILENAME = 'origins.xml';
+    private const string DEFAULT_ORIGINS_FILENAME = 'origins.xml';
 
     private readonly string $originsFile;
 

@@ -10,7 +10,7 @@ use Psr\Log\LoggerInterface;
 
 class Upgrader
 {
-    final public const DEFAULT_ORIGINS_FILENAME = 'origins.xml';
+    final public const string DEFAULT_ORIGINS_FILENAME = 'origins.xml';
 
     public function __construct(
         private readonly ResourcesGatewayInterface $gateway,
