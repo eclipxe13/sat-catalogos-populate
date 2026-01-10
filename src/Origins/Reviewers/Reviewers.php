@@ -10,10 +10,10 @@ use PhpCfdi\SatCatalogosPopulate\Origins\Origins;
 use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\Reviews;
 
-class Reviewers
+readonly class Reviewers
 {
     /** @var ReviewerInterface[] */
-    private readonly array $reviewers;
+    private array $reviewers;
 
     public function __construct(ReviewerInterface ...$reviewers)
     {

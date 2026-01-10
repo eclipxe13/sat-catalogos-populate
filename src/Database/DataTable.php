@@ -6,14 +6,14 @@ namespace PhpCfdi\SatCatalogosPopulate\Database;
 
 use LogicException;
 
-class DataTable
+readonly class DataTable
 {
-    private readonly string $name;
+    private string $name;
 
-    private readonly DataFields $fields;
+    private DataFields $fields;
 
     /** @var string[] */
-    private readonly array $primaryKey;
+    private array $primaryKey;
 
     /**
      * @param string[] $primaryKey

@@ -8,15 +8,15 @@ use DateTimeImmutable;
 use Psr\Http\Message\ResponseInterface;
 use Stringable;
 
-class UrlResponse
+readonly class UrlResponse
 {
-    private readonly DateTimeImmutable $lastModified;
+    private DateTimeImmutable $lastModified;
 
     public function __construct(
-        private readonly string $url,
-        private readonly int $httpStatus,
+        private string $url,
+        private int $httpStatus,
         DateTimeImmutable|null $lastModified = null,
-        private readonly Stringable|string $body = '',
+        private Stringable|string $body = '',
     ) {
         $this->lastModified = ($lastModified) ?: new DateTimeImmutable();
     }

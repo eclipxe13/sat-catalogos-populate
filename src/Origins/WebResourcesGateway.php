@@ -11,9 +11,9 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
-class WebResourcesGateway implements ResourcesGatewayInterface
+readonly class WebResourcesGateway implements ResourcesGatewayInterface
 {
-    private readonly GuzzleClient $client;
+    private GuzzleClient $client;
 
     public function __construct(GuzzleClient|null $client = null)
     {

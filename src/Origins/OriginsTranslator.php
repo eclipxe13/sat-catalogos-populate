@@ -112,5 +112,4 @@ final class OriginsTranslator implements OriginsTranslatorInterface
             'last-update' => ($origin->hasLastVersion()) ? $origin->lastVersion()->format('c') : '',
         ]);
     }
-
 }
