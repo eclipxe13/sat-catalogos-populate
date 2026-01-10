@@ -19,6 +19,9 @@ final class OriginsTranslator implements OriginsTranslatorInterface
         if ('scrap' === $type) {
             return $this->scrapingOriginFromArray($data);
         }
+        if ('nomina12e' === $type) {
+            return $this->nomina12eOriginFromArray($data);
+        }
         throw new RuntimeException("Unable to create an origin with type $type");
     }
 
@@ -42,6 +45,9 @@ final class OriginsTranslator implements OriginsTranslatorInterface
         if ($origin instanceof ScrapingOrigin) {
             return $this->scrapingOriginToArray($origin);
         }
+        if ($origin instanceof Nomina12eOrigin) {
+            return $this->constantNomina12eToArray($origin);
+        }
         throw new RuntimeException(sprintf('Unable to export an origin with type %s', $origin::class));
     }
 
@@ -55,6 +61,15 @@ final class OriginsTranslator implements OriginsTranslatorInterface
             strval($data['link-text'] ?? ''),
             $this->dateTimeFromStringOrNull(strval($data['last-update'] ?? '')),
             linkPosition: intval($data['link-position'] ?? 0),
+        );
+    }
+
+    /** @param array<string, string> $data */
+    public function nomina12eOriginFromArray(array $data): Nomina12eOrigin
+    {
+        return new Nomina12eOrigin(
+            strval($data['destination-file'] ?? ''),
+            $this->dateTimeFromStringOrNull(strval($data['last-update'] ?? '')),
         );
     }
 
@@ -88,4 +103,14 @@ final class OriginsTranslator implements OriginsTranslatorInterface
             'link-position' => strval($origin->linkPosition()),
         ]);
     }
+
+    public function constantNomina12eToArray(Nomina12eOrigin $origin): array
+    {
+        return array_filter([
+            'type' => 'nomina12e',
+            'destination-file' => $origin->destinationFilename(),
+            'last-update' => ($origin->hasLastVersion()) ? $origin->lastVersion()->format('c') : '',
+        ]);
+    }
+
 }

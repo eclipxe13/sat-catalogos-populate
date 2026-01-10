@@ -25,6 +25,7 @@
         "ext-pdo": "*",
         "ext-simplexml": "*",
         "ext-sqlite3": "*",
+        "chrome-php/chrome": "^1.15",
         "guzzlehttp/guzzle": "^7.0",
         "psr/http-message": "^2.0",
         "psr/log": "^3.0",

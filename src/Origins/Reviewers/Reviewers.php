@@ -25,6 +25,7 @@ class Reviewers
         return new self(...[
             new ConstantReviewer($gateway),
             new ScrapingReviewer($gateway),
+            new Nomina12eReviewer($gateway),
         ]);
     }
 
