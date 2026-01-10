@@ -148,7 +148,7 @@ class CsvFolderJoinFiles
         return implode(',', array_rtrim(
             array_map(
                 static fn (string|null $value): string => trim($value ?? ''),
-                str_getcsv($current),
+                str_getcsv($current, escape: ''),
             ),
         ));
     }

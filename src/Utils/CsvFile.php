@@ -110,7 +110,7 @@ readonly class CsvFile implements SeekableIterator
         $contents = (is_string($contents)) ? $contents : '';
         $values = array_map(
             static fn ($value): string => (is_scalar($value)) ? $value : '',
-            str_getcsv($contents),
+            str_getcsv($contents, escape: ''),
         );
         return $this->rowProcessor->execute($values);
     }
