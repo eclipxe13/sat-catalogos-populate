@@ -7,7 +7,9 @@ namespace PhpCfdi\SatCatalogosPopulate\Tests\Features\Origins\Reviewers;
 use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\Nomina12eReviewer;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
+#[AllowMockObjectsWithoutExpectations]
 final class Nomina12eReviewerTest extends TestCase
 {
     public function testReviewerCanObtainTheUrlToDownload(): void
