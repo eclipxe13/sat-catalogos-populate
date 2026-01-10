@@ -8,25 +8,23 @@ use DateTimeImmutable;
 use Psr\Http\Message\ResponseInterface;
 use Stringable;
 
-readonly class UrlResponse
+final readonly class UrlResponse
 {
-    private DateTimeImmutable $lastModified;
-
     public function __construct(
         private string $url,
         private int $httpStatus,
-        DateTimeImmutable|null $lastModified = null,
+        private DateTimeImmutable $lastModified = new DateTimeImmutable(),
         private Stringable|string $body = '',
     ) {
-        $this->lastModified = ($lastModified) ?: new DateTimeImmutable();
     }
 
     public static function createFromResponse(ResponseInterface $response, string $url): self
     {
-        $lastModified = null;
         if ($response->hasHeader('Last-Modified')) {
             /** @noinspection PhpUnhandledExceptionInspection */
             $lastModified = new DateTimeImmutable($response->getHeaderLine('Last-Modified'));
+        } else {
+            $lastModified = new DateTimeImmutable();
         }
 
         return new self($url, $response->getStatusCode(), $lastModified, $response->getBody());

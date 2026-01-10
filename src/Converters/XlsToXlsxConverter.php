@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Converters;
 
+use InvalidArgumentException;
 use LogicException;
 use PhpCfdi\SatCatalogosPopulate\Utils\ShellExec;
 use PhpCfdi\SatCatalogosPopulate\Utils\WhichTrait;
@@ -11,19 +12,22 @@ use RuntimeException;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\tempdir;
 
-class XlsToXlsxConverter
+final readonly class XlsToXlsxConverter
 {
     use WhichTrait;
 
-    /** @var string Location of soffice executable */
-    private readonly string $sofficePath;
-
-    public function __construct(string $sofficePath = '')
+    /** @param string $sofficePath Location of soffice executable */
+    public function __construct(private string $sofficePath)
     {
-        if ('' === $sofficePath) {
-            $sofficePath = $this->which('soffice');
+        if ('' === $this->sofficePath) {
+            throw new InvalidArgumentException('soffice path must not be empty.');
         }
-        $this->sofficePath = $sofficePath;
+    }
+
+    public static function create(): self
+    {
+        $sofficePath = self::which('soffice');
+        return new self($sofficePath);
     }
 
     public function sofficePath(): string
@@ -47,7 +51,8 @@ class XlsToXlsxConverter
             throw new RuntimeException("File $destination must not exists");
         }
 
-        $command = escapeshellarg($this->sofficePath()) . ' ' . implode(' ', array_map('escapeshellarg', [
+        $command = implode(' ', array_map('escapeshellarg', [
+            $this->sofficePath(),
             '--headless',
             '--nolockcheck',
             '--convert-to',
@@ -60,7 +65,7 @@ class XlsToXlsxConverter
         $execution = ShellExec::run($command);
         if (0 !== $execution->exitStatus()) {
             throw new RuntimeException(
-                "Execution of soffice convertion return a non zero status code [{$execution->exitStatus()}]",
+                "Execution of soffice conversion return a non zero status code [{$execution->exitStatus()}]",
             );
         }
 

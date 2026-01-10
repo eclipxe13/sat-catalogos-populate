@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Origins;
 
-class ReviewStatus
+final class ReviewStatus
 {
     protected const string UP_TO_DATE = 'UP-TO-DATE';
 

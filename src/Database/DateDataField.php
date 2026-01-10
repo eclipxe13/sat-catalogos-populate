@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Database;
 use DateTime;
 use RuntimeException;
 
-class DateDataField extends AbstractDataField implements DataFieldInterface
+final class DateDataField extends AbstractDataField implements DataFieldInterface
 {
     public function __construct(string $name)
     {

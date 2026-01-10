@@ -14,11 +14,11 @@ class XlsToCsvFolderConverter
 
         try {
             // convert from XLS to XLSX
-            $xlsToXlsxConverter = new XlsToXlsxConverter();
+            $xlsToXlsxConverter = XlsToXlsxConverter::create();
             $xlsToXlsxConverter->convert($source, $xlsxDestination);
 
             // convert from XLSX to CSV
-            $xlsxToCsvFolder = new XlsxToCsvFolderConverter();
+            $xlsxToCsvFolder = XlsxToCsvFolderConverter::create();
             $xlsxToCsvFolder->convert($xlsxDestination, $destination);
 
             // join files that are in two or more files

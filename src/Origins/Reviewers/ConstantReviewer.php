@@ -11,7 +11,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\Review;
 use PhpCfdi\SatCatalogosPopulate\Origins\ReviewStatus;
 
-readonly class ConstantReviewer implements ReviewerInterface
+final readonly class ConstantReviewer implements ReviewerInterface
 {
     public function __construct(private ResourcesGatewayInterface $gateway)
     {

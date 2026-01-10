@@ -104,6 +104,7 @@ final class OriginsTranslator implements OriginsTranslatorInterface
         ]);
     }
 
+    /** @return array<string, string> */
     public function constantNomina12eToArray(Nomina12eOrigin $origin): array
     {
         return array_filter([

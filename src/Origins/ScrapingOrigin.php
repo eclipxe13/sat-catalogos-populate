@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Origins;
 use DateTimeImmutable;
 use LogicException;
 
-class ScrapingOrigin implements OriginInterface
+final class ScrapingOrigin implements OriginInterface
 {
     public function __construct(
         private readonly string $name,

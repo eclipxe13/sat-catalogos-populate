@@ -8,7 +8,7 @@ use PDO;
 use PDOException;
 use RuntimeException;
 
-readonly class Repository
+final readonly class Repository
 {
     private PDO $pdo;
 

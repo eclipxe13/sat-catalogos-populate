@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Utils;
 
-class ShellExec
+final class ShellExec
 {
     /** @param string[] $output */
     public function __construct(

@@ -19,10 +19,10 @@ readonly class CsvFile implements SeekableIterator
 {
     private SplFileObject $file;
 
-    private ArrayProcessorInterface $rowProcessor;
-
-    public function __construct(string $filename, ArrayProcessorInterface|null $rowProcessor = null)
-    {
+    public function __construct(
+        string $filename,
+        private ArrayProcessorInterface $rowProcessor = new NullArrayProcessor(),
+    ) {
         if ('' === $filename) {
             throw new UnexpectedValueException('The filename cannot be empty');
         }
@@ -30,7 +30,6 @@ readonly class CsvFile implements SeekableIterator
             throw new UnexpectedValueException('The filename is a directory');
         }
         $this->file = new SplFileObject($filename, 'r');
-        $this->rowProcessor = $rowProcessor ?? new NullArrayProcessor();
     }
 
     public function position(): int

@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Database;
 use LogicException;
 use PDOException;
 
-readonly class DataTableGateway
+final readonly class DataTableGateway
 {
     public function __construct(private DataTable $dataTable, private Repository $repository)
     {

@@ -9,7 +9,7 @@ use SplFileObject;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\array_rtrim;
 
-class CsvFolderJoinFiles
+final class CsvFolderJoinFiles
 {
     public function joinFilesInFolder(string $csvFolder): void
     {

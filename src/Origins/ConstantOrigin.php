@@ -8,7 +8,7 @@ use DateTimeImmutable;
 use InvalidArgumentException;
 use LogicException;
 
-class ConstantOrigin implements OriginInterface
+final class ConstantOrigin implements OriginInterface
 {
     private string $destinationFilename;
 

@@ -18,7 +18,7 @@ final class XlsxToCsvFolderConverterTest extends TestCase
         $destination = tempdir($this->utilFilePath(''));
 
         // when convert to csv files in a destination
-        $converter = new XlsxToCsvFolderConverter();
+        $converter = XlsxToCsvFolderConverter::create();
         $converter->convert($source, $destination);
 
         // then the expected files exist

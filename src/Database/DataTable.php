@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Database;
 
 use LogicException;
 
-readonly class DataTable
+final readonly class DataTable
 {
     private string $name;
 

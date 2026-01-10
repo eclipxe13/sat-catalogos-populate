@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Database;
 
-class PaddingDataField extends TextDataField implements DataFieldInterface
+final class PaddingDataField extends TextDataField implements DataFieldInterface
 {
     public function __construct(string $name, string $padding, int $length)
     {

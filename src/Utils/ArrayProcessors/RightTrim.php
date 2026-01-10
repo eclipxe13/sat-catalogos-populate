@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Utils\ArrayProcessors;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\array_rtrim;
 
-class RightTrim extends AbstractPipeArrayProcessor implements ArrayProcessorInterface
+final class RightTrim extends AbstractPipeArrayProcessor implements ArrayProcessorInterface
 {
     /** @inheritdoc */
     public function execute(array $array): array

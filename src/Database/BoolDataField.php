@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Database;
 
-class BoolDataField extends AbstractDataField implements DataFieldInterface
+final class BoolDataField extends AbstractDataField implements DataFieldInterface
 {
     /**
      * @param string[] $trueValues

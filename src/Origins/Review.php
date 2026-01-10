@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Origins;
 
-readonly class Review
+final readonly class Review
 {
     public function __construct(private OriginInterface $origin, private ReviewStatus $status)
     {

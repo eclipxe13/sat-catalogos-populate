@@ -7,11 +7,9 @@ namespace PhpCfdi\SatCatalogosPopulate\Origins;
 use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\Reviewers;
 use Psr\Log\LoggerInterface;
 
-// use function PhpCfdi\SatCatalogosPopulate\Utils\file_extension;
-
-class Upgrader
+final class Upgrader
 {
-    final public const string DEFAULT_ORIGINS_FILENAME = 'origins.xml';
+    public const string DEFAULT_ORIGINS_FILENAME = 'origins.xml';
 
     public function __construct(
         private readonly ResourcesGatewayInterface $gateway,
@@ -92,25 +90,4 @@ class Upgrader
         $urlResponse = $this->gateway->get($origin->downloadUrl(), $destination);
         return $origin->withLastModified($urlResponse->lastModified());
     }
-
-    /*
-    protected function createBackup(string $currentFile)
-    {
-        if (! file_exists($currentFile)) {
-            return;
-        }
-        $extension = file_extension($currentFile);
-        $currentDate = (new \DateTimeImmutable())->setTimestamp(filectime($currentFile));
-        $backupFile = sprintf(
-            '%s-%s.%s',
-            substr($currentFile, 0, - 1 - strlen($extension)), // current name without extension
-            $currentDate->format('Ymd-HisO'),                  // date
-            $extension                                         // extension
-        );
-        if (! file_exists($backupFile)) {
-            $this->logger->info(sprintf('Respaldando %s en %s', $currentFile, $backupFile));
-            copy($currentFile, $backupFile);
-        }
-    }
-    */
 }

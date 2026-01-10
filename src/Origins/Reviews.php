@@ -9,7 +9,7 @@ use PhpCfdi\SatCatalogosPopulate\AbstractCollection;
 /**
  * @extends AbstractCollection<Review>
  */
-class Reviews extends AbstractCollection
+final class Reviews extends AbstractCollection
 {
     public function isValidMember(mixed $member): bool
     {

@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
 /**
  * @extends AbstractCollection<InjectorInterface>
  */
-class Injectors extends AbstractCollection implements InjectorInterface
+final class Injectors extends AbstractCollection implements InjectorInterface
 {
     public function __construct(array $members)
     {

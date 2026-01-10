@@ -14,7 +14,7 @@ use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingReviewerLinkExtractor;
 use PhpCfdi\SatCatalogosPopulate\Origins\UrlResponse;
 use RuntimeException;
 
-readonly class ScrapingReviewer implements ReviewerInterface
+final readonly class ScrapingReviewer implements ReviewerInterface
 {
     public function __construct(private ResourcesGatewayInterface $gateway)
     {
