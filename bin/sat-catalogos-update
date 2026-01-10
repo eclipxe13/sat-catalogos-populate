@@ -14,8 +14,7 @@ error_reporting(-1);
 exit(call_user_func(function (string ...$arguments): int {
     $debug = true;
     try {
-        $cliApplication = new CliApplication();
-        return $cliApplication->run(...$arguments);
+        return new CliApplication()->run(...$arguments);
     } catch (Throwable $exception) {
         file_put_contents('php://stderr', 'ERROR: ' . $exception->getMessage() . PHP_EOL, FILE_APPEND);
         if ($debug) {

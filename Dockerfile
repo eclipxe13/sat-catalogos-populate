@@ -19,6 +19,8 @@ RUN set -e \
         php-cli php-curl php-zip php-sqlite3 php-xml \
     && apt-get install -y --no-install-recommends \
         libreoffice-calc-nogui default-jre-headless libreoffice-java-common \
+    && apt-get install -y --no-install-recommends \
+        chromium \
     # Clean APT \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -40,6 +42,8 @@ RUN set -e \
     && composer update --no-dev --prefer-dist --optimize-autoloader --no-interaction \
     && rm -rf "$(composer config cache-dir --global)" "$(composer config data-dir --global)" "$(composer config home --global)"
 
+ENV CHROME_BINARY="/usr/bin/chromium"
+ENV CHROME_NOSANDBOX="yes"
 ENV TZ="America/Mexico_City"
 
 ENTRYPOINT ["/opt/sat-catalogos-populate/bin/sat-catalogos-update"]

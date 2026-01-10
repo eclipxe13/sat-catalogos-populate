@@ -8,7 +8,7 @@ use RuntimeException;
 
 trait WhichTrait
 {
-    public function which(string $executable): string
+    public static function which(string $executable): string
     {
         $wichPath = '/usr/bin/which';
         if (! is_file($wichPath) || ! is_executable($wichPath)) {

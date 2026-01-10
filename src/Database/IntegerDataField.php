@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Database;
 
-class IntegerDataField extends AbstractDataField implements DataFieldInterface
+final class IntegerDataField extends AbstractDataField implements DataFieldInterface
 {
     public function __construct(string $name)
     {

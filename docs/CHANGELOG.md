@@ -1,5 +1,30 @@
 # phpcfdi/sat-catalogos-populate Changelog
 
+## Version 3.0.0 2026-01-09
+
+This is an update to be able to download *Nóminas 1.2 revisión E* catalog file.
+The resource URL requires a web browser that executes *javascript*.
+
+*Chrome* or *Chromium* is now required to obtain the resource address for *Nóminas 1.2 revisión E*.
+This version add `chrome-php/chrome` as a dependency.
+If *Chrome* is not executable or detectable you can set the binary location on `CHROME_BINARY` variable.
+To run *Chrome* with *no sandbox* use `CHROME_NOSANDBOX=yes`.
+
+On this version, *Origin reviewers* change its namespace from
+`PhpCfdi\SatCatalogosPopulate\Origins` to `PhpCfdi\SatCatalogosPopulate\Origins\Reviewers`.
+
+Minimal PHP version is now 8.4.
+Compatibility with PHP 8.5 has been included.
+
+Function `str_getcsv` parameter `escape` bas been defined as empty string.
+All other values are deprecated.
+
+All classes that has the chance has been maked as `final` or `readonly`.
+
+Other changes:
+
+- PHPUnit has been upgrated to 12.5.
+
 ## Version 2.10.0 2026-01-08
 
 This is an update to make the code compatible with PHP 8.4.

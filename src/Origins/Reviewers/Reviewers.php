@@ -2,14 +2,18 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogosPopulate\Origins;
+namespace PhpCfdi\SatCatalogosPopulate\Origins\Reviewers;
 
 use LogicException;
+use PhpCfdi\SatCatalogosPopulate\Origins\OriginInterface;
+use PhpCfdi\SatCatalogosPopulate\Origins\Origins;
+use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
+use PhpCfdi\SatCatalogosPopulate\Origins\Reviews;
 
-class Reviewers
+final readonly class Reviewers
 {
     /** @var ReviewerInterface[] */
-    private readonly array $reviewers;
+    private array $reviewers;
 
     public function __construct(ReviewerInterface ...$reviewers)
     {
@@ -21,6 +25,7 @@ class Reviewers
         return new self(...[
             new ConstantReviewer($gateway),
             new ScrapingReviewer($gateway),
+            new Nomina12eReviewer($gateway),
         ]);
     }
 

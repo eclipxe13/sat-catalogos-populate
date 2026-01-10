@@ -9,7 +9,7 @@ use SplFileObject;
 
 use function PhpCfdi\SatCatalogosPopulate\Utils\array_rtrim;
 
-class CsvFolderJoinFiles
+final class CsvFolderJoinFiles
 {
     public function joinFilesInFolder(string $csvFolder): void
     {
@@ -148,7 +148,7 @@ class CsvFolderJoinFiles
         return implode(',', array_rtrim(
             array_map(
                 static fn (string|null $value): string => trim($value ?? ''),
-                str_getcsv($current, escape: '\\'),
+                str_getcsv($current, escape: ''),
             ),
         ));
     }
@@ -157,13 +157,10 @@ class CsvFolderJoinFiles
     public function lastLineContains(string $filename, array $searchterms): bool
     {
         $lastline = $this->obtainFileLastLine($filename);
-        foreach ($searchterms as $search) {
-            if (str_contains($lastline, $search)) {
-                return true;
-            }
-        }
-
-        return false;
+        return array_any(
+            $searchterms,
+            static fn ($search) => str_contains($lastline, (string) $search),
+        );
     }
 
     public function obtainFileLastLine(string $filename): string

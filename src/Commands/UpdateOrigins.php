@@ -8,7 +8,7 @@ use PhpCfdi\SatCatalogosPopulate\Database\Repository;
 use PhpCfdi\SatCatalogosPopulate\Importers\SourcesImporter;
 use PhpCfdi\SatCatalogosPopulate\Origins\Origins;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginsIO;
-use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers;
+use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\Reviewers;
 use PhpCfdi\SatCatalogosPopulate\Origins\ReviewStatus;
 use PhpCfdi\SatCatalogosPopulate\Origins\Upgrader;
 use PhpCfdi\SatCatalogosPopulate\Origins\WebResourcesGateway;
@@ -17,7 +17,7 @@ use RuntimeException;
 
 final class UpdateOrigins implements CommandInterface
 {
-    private const DEFAULT_ORIGINS_FILENAME = 'origins.xml';
+    private const string DEFAULT_ORIGINS_FILENAME = 'origins.xml';
 
     private readonly string $originsFile;
 
@@ -73,12 +73,12 @@ final class UpdateOrigins implements CommandInterface
 
     protected function originsRestore(): Origins
     {
-        return (new OriginsIO())->readFile($this->getOriginsFile());
+        return new OriginsIO()->readFile($this->getOriginsFile());
     }
 
     protected function originsStore(Origins $origins): void
     {
-        (new OriginsIO())->writeFile($this->getOriginsFile(), $origins);
+        new OriginsIO()->writeFile($this->getOriginsFile(), $origins);
     }
 
     public function createResourcesGateway(): WebResourcesGateway

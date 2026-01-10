@@ -2,29 +2,31 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Origins;
+namespace PhpCfdi\SatCatalogosPopulate\Tests\Unit\Origins\Reviewers;
 
 use LogicException;
-use PhpCfdi\SatCatalogosPopulate\Origins\ConstantOrigin;
-use PhpCfdi\SatCatalogosPopulate\Origins\ConstantReviewer;
 use PhpCfdi\SatCatalogosPopulate\Origins\OriginInterface;
 use PhpCfdi\SatCatalogosPopulate\Origins\ResourcesGatewayInterface;
+use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\ScrapingReviewer;
+use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingOrigin;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 
-final class ConstantReviewerTest extends TestCase
+#[AllowMockObjectsWithoutExpectations]
+final class ScrapingReviewerTest extends TestCase
 {
-    private ConstantReviewer $reviewer;
+    private ScrapingReviewer $reviewer;
 
     protected function setUp(): void
     {
         parent::setUp();
         $gateway = $this->createMock(ResourcesGatewayInterface::class);
-        $this->reviewer = new ConstantReviewer($gateway);
+        $this->reviewer = new ScrapingReviewer($gateway);
     }
 
     public function testAcceptsWithValidObject(): void
     {
-        $origin = new ConstantOrigin('Foo', 'https://foo/foo');
+        $origin = new ScrapingOrigin('Foo', 'https://foo/', 'foo.txt', 'foo');
         $this->assertTrue($this->reviewer->accepts($origin));
     }
 
@@ -38,7 +40,7 @@ final class ConstantReviewerTest extends TestCase
     {
         $origin = $this->createMock(OriginInterface::class);
         $this->expectException(LogicException::class);
-        $this->expectExceptionMessage('This reviewer can only handle ConstantOrigin objects');
+        $this->expectExceptionMessage('This reviewer can only handle ScrapingOrigin objects');
         $this->reviewer->review($origin);
     }
 }

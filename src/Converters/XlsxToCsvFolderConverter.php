@@ -4,23 +4,27 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Converters;
 
+use InvalidArgumentException;
 use PhpCfdi\SatCatalogosPopulate\Utils\ShellExec;
 use PhpCfdi\SatCatalogosPopulate\Utils\WhichTrait;
 use RuntimeException;
 
-class XlsxToCsvFolderConverter
+final readonly class XlsxToCsvFolderConverter
 {
     use WhichTrait;
 
-    /** @var string Location of xlsx2csvPath executable */
-    private readonly string $xlsx2csvPath;
-
-    public function __construct(string $xlsx2csvPath = '')
+    /** @param string $xlsx2csvPath Location of xlsx2csvPath executable */
+    public function __construct(private string $xlsx2csvPath)
     {
-        if ('' === $xlsx2csvPath) {
-            $xlsx2csvPath = $this->which('xlsx2csv');
+        if ('' === $this->xlsx2csvPath) {
+            throw new InvalidArgumentException('xlsx2csv path must not be empty.');
         }
-        $this->xlsx2csvPath = $xlsx2csvPath;
+    }
+
+    public static function create(): self
+    {
+        $xlsx2csvPath = self::which('xlsx2csv');
+        return new self($xlsx2csvPath);
     }
 
     public function xlsx2csvPath(): string

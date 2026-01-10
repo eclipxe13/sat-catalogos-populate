@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Importers\Cfdi\Injectors;
 
-use http\Exception\InvalidArgumentException;
+use InvalidArgumentException;
 use PhpCfdi\SatCatalogosPopulate\AbstractCsvInjector;
 use PhpCfdi\SatCatalogosPopulate\Database\DataFields;
 use PhpCfdi\SatCatalogosPopulate\Database\DataTable;

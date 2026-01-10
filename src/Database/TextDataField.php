@@ -6,7 +6,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Database;
 
 class TextDataField extends AbstractDataField implements DataFieldInterface
 {
-    public const MB_CHAR_NBSP = "\xC2\xA0";
+    public const string MB_CHAR_NBSP = "\xC2\xA0";
 
     public function transform($input)
     {

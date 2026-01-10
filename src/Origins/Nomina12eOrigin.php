@@ -7,31 +7,23 @@ namespace PhpCfdi\SatCatalogosPopulate\Origins;
 use DateTimeImmutable;
 use LogicException;
 
-final class ScrapingOrigin implements OriginInterface
+final readonly class Nomina12eOrigin implements OriginInterface
 {
+    private string $name;
+
+    private string $downloadUrl;
+
     public function __construct(
-        private readonly string $name,
-        private readonly string $toScrapUrl,
-        private readonly string $destinationFilename,
-        private readonly string $linkText,
+        private string $destinationFilename = '',
         private ?DateTimeImmutable $lastVersion = null,
-        private string $downloadUrl = '',
-        private readonly int $linkPosition = 0,
     ) {
+        $this->name = 'Nómina 12e';
+        $this->downloadUrl = 'https://www.sat.gob.mx/portal/public/tramites/complemento-de-nomina';
     }
 
     public function withLastModified(?DateTimeImmutable $lastModified): static
     {
-        $clone = clone $this;
-        $clone->lastVersion = $lastModified;
-        return $clone;
-    }
-
-    public function withDownloadUrl(string $downloadUrl): self
-    {
-        $clone = clone $this;
-        $clone->downloadUrl = $downloadUrl;
-        return $clone;
+        return new self($this->destinationFilename, $lastModified);
     }
 
     public function name(): string
@@ -41,7 +33,7 @@ final class ScrapingOrigin implements OriginInterface
 
     public function url(): string
     {
-        return $this->toScrapUrl;
+        return $this->downloadUrl();
     }
 
     public function lastVersion(): DateTimeImmutable
@@ -65,20 +57,5 @@ final class ScrapingOrigin implements OriginInterface
     public function downloadUrl(): string
     {
         return $this->downloadUrl;
-    }
-
-    public function hasDownloadUrl(): bool
-    {
-        return ('' !== $this->downloadUrl);
-    }
-
-    public function linkText(): string
-    {
-        return $this->linkText;
-    }
-
-    public function linkPosition(): int
-    {
-        return $this->linkPosition;
     }
 }

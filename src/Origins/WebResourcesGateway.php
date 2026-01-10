@@ -11,13 +11,10 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
-class WebResourcesGateway implements ResourcesGatewayInterface
+final readonly class WebResourcesGateway implements ResourcesGatewayInterface
 {
-    private readonly GuzzleClient $client;
-
-    public function __construct(GuzzleClient|null $client = null)
+    public function __construct(private GuzzleClient $client = new GuzzleClient())
     {
-        $this->client = $client ?? new GuzzleClient();
     }
 
     private function obtainResponse(string $method, string $url): ResponseInterface

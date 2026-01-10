@@ -7,9 +7,9 @@ namespace PhpCfdi\SatCatalogosPopulate\Origins;
 use DOMDocument;
 use SimpleXMLElement;
 
-class OriginsIO
+final readonly class OriginsIO
 {
-    private readonly OriginsTranslator $translator;
+    private OriginsTranslator $translator;
 
     public function __construct()
     {

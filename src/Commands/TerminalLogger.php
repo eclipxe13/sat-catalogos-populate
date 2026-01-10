@@ -7,7 +7,7 @@ namespace PhpCfdi\SatCatalogosPopulate\Commands;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
 
-class TerminalLogger extends AbstractLogger
+final class TerminalLogger extends AbstractLogger
 {
     /**
      * @param string $level

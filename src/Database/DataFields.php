@@ -14,28 +14,27 @@ use UnexpectedValueException;
 /**
  * @implements IteratorAggregate<DataFieldInterface>
  */
-class DataFields implements Countable, IteratorAggregate
+final readonly class DataFields implements Countable, IteratorAggregate
 {
     /** @var array<string, DataFieldInterface> */
-    private array $map = [];
+    private array $map;
 
-    /**
-     * @param DataFieldInterface[] $dataFields
-     */
+    /** @param DataFieldInterface[] $dataFields */
     public function __construct(array $dataFields)
     {
+        $map = [];
         foreach ($dataFields as $dataField) {
             /** @phpstan-ignore-next-line instanceof.alwaysTrue */
             if (! $dataField instanceof DataFieldInterface) {
                 throw new InvalidArgumentException('There is a datafield with invalid type');
             }
-            $this->map[$dataField->name()] = $dataField;
+            $map[$dataField->name()] = $dataField;
         }
+
+        $this->map = $map;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function keys(): array
     {
         return array_keys($this->map);

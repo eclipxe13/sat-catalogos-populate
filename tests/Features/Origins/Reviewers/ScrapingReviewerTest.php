@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpCfdi\SatCatalogosPopulate\Tests\Features\Origins;
+namespace PhpCfdi\SatCatalogosPopulate\Tests\Features\Origins\Reviewers;
 
 use DateTimeImmutable;
+use PhpCfdi\SatCatalogosPopulate\Origins\Reviewers\ScrapingReviewer;
 use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingOrigin;
-use PhpCfdi\SatCatalogosPopulate\Origins\ScrapingReviewer;
 use PhpCfdi\SatCatalogosPopulate\Origins\UrlResponse;
 use PhpCfdi\SatCatalogosPopulate\Tests\Fixtures\Origins\FakeGateway;
 use PhpCfdi\SatCatalogosPopulate\Tests\TestCase;

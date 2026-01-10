@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Database;
 
-class NumberFormatDataField extends TextDataField implements DataFieldInterface
+final class NumberFormatDataField extends TextDataField implements DataFieldInterface
 {
     public function __construct(string $name, int $decimals)
     {

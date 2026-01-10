@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpCfdi\SatCatalogosPopulate\Origins;
 
-class ReviewStatus
+final class ReviewStatus
 {
-    protected const UP_TO_DATE = 'UP-TO-DATE';
+    protected const string UP_TO_DATE = 'UP-TO-DATE';
 
-    protected const NOT_FOUND = 'NOT-FOUND';
+    protected const string NOT_FOUND = 'NOT-FOUND';
 
-    protected const NOT_UPDATED = 'NOT-UPDATED';
+    protected const string NOT_UPDATED = 'NOT-UPDATED';
 
     private function __construct(private readonly string $status)
     {

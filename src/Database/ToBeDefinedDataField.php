@@ -29,11 +29,9 @@ final class ToBeDefinedDataField extends PreprocessDataField
         }
 
         $input = trim(strval($input));
-        foreach ($this->toBeDefinedTexts as $toBeDefinedText) {
-            if (0 === strcasecmp($toBeDefinedText, $input)) {
-                return true;
-            }
-        }
-        return false;
+        return array_any(
+            $this->toBeDefinedTexts,
+            static fn ($toBeDefinedText) => 0 === strcasecmp((string) $toBeDefinedText, $input),
+        );
     }
 }

@@ -8,9 +8,9 @@ use PDO;
 use PDOException;
 use RuntimeException;
 
-class Repository
+final readonly class Repository
 {
-    private readonly PDO $pdo;
+    private PDO $pdo;
 
     public function __construct(string $dbfile)
     {
