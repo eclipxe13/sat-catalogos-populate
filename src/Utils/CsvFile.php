@@ -15,11 +15,11 @@ use UnexpectedValueException;
 /**
  * @implements SeekableIterator<int, array<int, scalar>>
  */
-class CsvFile implements SeekableIterator
+readonly class CsvFile implements SeekableIterator
 {
-    private readonly SplFileObject $file;
+    private SplFileObject $file;
 
-    private readonly ArrayProcessorInterface $rowProcessor;
+    private ArrayProcessorInterface $rowProcessor;
 
     public function __construct(string $filename, ArrayProcessorInterface|null $rowProcessor = null)
     {
@@ -110,7 +110,7 @@ class CsvFile implements SeekableIterator
         $contents = (is_string($contents)) ? $contents : '';
         $values = array_map(
             static fn ($value): string => (is_scalar($value)) ? $value : '',
-            str_getcsv($contents, escape: '\\'),
+            str_getcsv($contents),
         );
         return $this->rowProcessor->execute($values);
     }
