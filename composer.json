@@ -23,6 +23,7 @@
         "ext-dom": "*",
         "ext-json": "*",
         "ext-pdo": "*",
+        "ext-posix": "*",
         "ext-simplexml": "*",
         "ext-sqlite3": "*",
         "chrome-php/chrome": "^1.15",

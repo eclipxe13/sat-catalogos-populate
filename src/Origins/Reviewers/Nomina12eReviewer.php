@@ -54,7 +54,11 @@ final class Nomina12eReviewer implements ReviewerInterface
     /** @throws Exception when something goes wrong */
     public function obtainResourceUrl(): string
     {
-        $browserFactory = new BrowserFactory();
+        $chromeBinary = $this->obtainChromeBinary();
+        $browserFactory = new BrowserFactory($chromeBinary);
+        if (0 === posix_getuid()) {
+            $browserFactory->addOptions(['noSandbox' => true]);
+        }
         $browser = $browserFactory->createBrowser();
         try {
             // creates a new page and navigate to a URL
@@ -95,5 +99,15 @@ final class Nomina12eReviewer implements ReviewerInterface
         } finally {
             $browser->close();
         }
+    }
+
+    private function obtainChromeBinary(): string|null
+    {
+        $chromeBinary = $_SERVER['CHROME_BINARY'] ?? null;
+        if (! is_scalar($chromeBinary) && ! is_null($chromeBinary)) {
+            return null;
+        }
+
+        return is_scalar($chromeBinary) ? (string) $chromeBinary : null;
     }
 }
