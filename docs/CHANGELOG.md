@@ -7,7 +7,8 @@ The resource URL requires a web browser that executes *javascript*.
 
 *Chrome* or *Chromium* is now required to obtain the resource address for *Nóminas 1.2 revisión E*.
 This version add `chrome-php/chrome` as a dependency.
-If chrome is not executable or detectable you can set the binary location on `CHROME_BINARY` variable.
+If *Chrome* is not executable or detectable you can set the binary location on `CHROME_BINARY` variable.
+To run *Chrome* with *no sandbox* use `CHROME_NOSANDBOX=yes`.
 
 On this version, *Origin reviewers* change its namespace from
 `PhpCfdi\SatCatalogosPopulate\Origins` to `PhpCfdi\SatCatalogosPopulate\Origins\Reviewers`.

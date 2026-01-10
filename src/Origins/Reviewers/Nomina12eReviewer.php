@@ -56,9 +56,7 @@ final class Nomina12eReviewer implements ReviewerInterface
     {
         $chromeBinary = $this->obtainChromeBinary();
         $browserFactory = new BrowserFactory($chromeBinary);
-        if (0 === posix_getuid()) {
-            $browserFactory->addOptions(['noSandbox' => true]);
-        }
+        $browserFactory->addOptions(['noSandbox' => $this->obtainChromeNoSandbox()]);
         $browser = $browserFactory->createBrowser();
         try {
             // creates a new page and navigate to a URL
@@ -109,5 +107,14 @@ final class Nomina12eReviewer implements ReviewerInterface
         }
 
         return is_scalar($chromeBinary) ? (string) $chromeBinary : null;
+    }
+
+    private function obtainChromeNoSandbox(): bool
+    {
+        $chromeNoSandbox = $_SERVER['CHROME_NOSANDBOX'] ?? null;
+        if (is_string($chromeNoSandbox)) {
+            return in_array(strtolower($chromeNoSandbox), ['yes', 'true'], true);
+        }
+        return false;
     }
 }

@@ -43,6 +43,7 @@ RUN set -e \
     && rm -rf "$(composer config cache-dir --global)" "$(composer config data-dir --global)" "$(composer config home --global)"
 
 ENV CHROME_BINARY="/usr/bin/chromium"
+ENV CHROME_NOSANDBOX="yes"
 ENV TZ="America/Mexico_City"
 
 ENTRYPOINT ["/opt/sat-catalogos-populate/bin/sat-catalogos-update"]
